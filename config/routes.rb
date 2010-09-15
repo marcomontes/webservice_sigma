@@ -40,4 +40,11 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+
+   map.resources :wsaud, :collection => {
+     :recibir_datos_audiencia_publica => :get,
+     :respuesta_inscripcion_audiencia => :get,
+     :aprueba_inscripcion_audiencia => :get,
+     :datos_inscripcion_audiencia => :get
+   }
 end
