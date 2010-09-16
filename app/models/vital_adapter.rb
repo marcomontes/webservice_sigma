@@ -9,8 +9,8 @@ class VitalAdapter
 
   # WSAUD
 
-  def self.respuesta_inscripcion_audiencia
-    "#{WS_URL}"
+  def self.respuesta_inscripcion_audiencia(id_audiencia_publica)
+    get("#{WS_URL}/WSAUD/RespuestaInscripcionAudiencia")
   end
   
 end
