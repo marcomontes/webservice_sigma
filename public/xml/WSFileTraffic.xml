@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RecibirDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strNumeroSilpa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstBytesDocumento" type="tns:ArrayOfBase64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstStrNombreDocumento" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RecibirDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RecibirDocumentoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibirDocumentoPorXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strNumeroSilpa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUsuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strXmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibirDocumentoPorXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RecibirDocumentoPorXmlResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFormulariosBpm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProcessInstance" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarFormulariosBpmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarFormulariosBpmResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosFormulariosProceso">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProcessInstance" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosFormulariosProcesoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosFormulariosProcesoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RecibirDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:RecibirDocumento" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:RecibirDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDocumentoPorXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:RecibirDocumentoPorXml" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDocumentoPorXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:RecibirDocumentoPorXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormulariosBpmSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarFormulariosBpm" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormulariosBpmSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarFormulariosBpmResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosFormulariosProcesoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosFormulariosProceso" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosFormulariosProcesoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosFormulariosProcesoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDocumentoPorXmlHttpGetIn">
+    <wsdl:part name="strNumeroSilpa" type="s:string" />
+    <wsdl:part name="strUsuario" type="s:string" />
+    <wsdl:part name="strXmlData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDocumentoPorXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormulariosBpmHttpGetIn">
+    <wsdl:part name="idProcessInstance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormulariosBpmHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosFormulariosProcesoHttpGetIn">
+    <wsdl:part name="idProcessInstance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosFormulariosProcesoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="RecibirDocumentoPorXmlHttpPostIn">
+    <wsdl:part name="strNumeroSilpa" type="s:string" />
+    <wsdl:part name="strUsuario" type="s:string" />
+    <wsdl:part name="strXmlData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDocumentoPorXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormulariosBpmHttpPostIn">
+    <wsdl:part name="idProcessInstance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormulariosBpmHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosFormulariosProcesoHttpPostIn">
+    <wsdl:part name="idProcessInstance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosFormulariosProcesoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSFileTrafficSoap">
+    <wsdl:operation name="RecibirDocumento">
+      <wsdl:input message="tns:RecibirDocumentoSoapIn" />
+      <wsdl:output message="tns:RecibirDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDocumentoPorXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que recibe los archivos adjuntos mediante un documento XML</wsdl:documentation>
+      <wsdl:input message="tns:RecibirDocumentoPorXmlSoapIn" />
+      <wsdl:output message="tns:RecibirDocumentoPorXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormulariosBpm">
+      <wsdl:input message="tns:ListarFormulariosBpmSoapIn" />
+      <wsdl:output message="tns:ListarFormulariosBpmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosFormulariosProceso">
+      <wsdl:input message="tns:ObtenerDatosFormulariosProcesoSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosFormulariosProcesoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSFileTrafficHttpGet">
+    <wsdl:operation name="RecibirDocumentoPorXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que recibe los archivos adjuntos mediante un documento XML</wsdl:documentation>
+      <wsdl:input message="tns:RecibirDocumentoPorXmlHttpGetIn" />
+      <wsdl:output message="tns:RecibirDocumentoPorXmlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormulariosBpm">
+      <wsdl:input message="tns:ListarFormulariosBpmHttpGetIn" />
+      <wsdl:output message="tns:ListarFormulariosBpmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosFormulariosProceso">
+      <wsdl:input message="tns:ObtenerDatosFormulariosProcesoHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosFormulariosProcesoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSFileTrafficHttpPost">
+    <wsdl:operation name="RecibirDocumentoPorXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método que recibe los archivos adjuntos mediante un documento XML</wsdl:documentation>
+      <wsdl:input message="tns:RecibirDocumentoPorXmlHttpPostIn" />
+      <wsdl:output message="tns:RecibirDocumentoPorXmlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormulariosBpm">
+      <wsdl:input message="tns:ListarFormulariosBpmHttpPostIn" />
+      <wsdl:output message="tns:ListarFormulariosBpmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosFormulariosProceso">
+      <wsdl:input message="tns:ObtenerDatosFormulariosProcesoHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosFormulariosProcesoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSFileTrafficSoap" type="tns:WSFileTrafficSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDocumento">
+      <soap:operation soapAction="http://tempuri.org/RecibirDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDocumentoPorXml">
+      <soap:operation soapAction="http://tempuri.org/RecibirDocumentoPorXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormulariosBpm">
+      <soap:operation soapAction="http://tempuri.org/ListarFormulariosBpm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosFormulariosProceso">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDatosFormulariosProceso" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSFileTrafficSoap12" type="tns:WSFileTrafficSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDocumento">
+      <soap12:operation soapAction="http://tempuri.org/RecibirDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDocumentoPorXml">
+      <soap12:operation soapAction="http://tempuri.org/RecibirDocumentoPorXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormulariosBpm">
+      <soap12:operation soapAction="http://tempuri.org/ListarFormulariosBpm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosFormulariosProceso">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDatosFormulariosProceso" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSFileTrafficHttpGet" type="tns:WSFileTrafficHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RecibirDocumentoPorXml">
+      <http:operation location="/RecibirDocumentoPorXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormulariosBpm">
+      <http:operation location="/ListarFormulariosBpm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosFormulariosProceso">
+      <http:operation location="/ObtenerDatosFormulariosProceso" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSFileTrafficHttpPost" type="tns:WSFileTrafficHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RecibirDocumentoPorXml">
+      <http:operation location="/RecibirDocumentoPorXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormulariosBpm">
+      <http:operation location="/ListarFormulariosBpm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosFormulariosProceso">
+      <http:operation location="/ObtenerDatosFormulariosProceso" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSFileTraffic">
+    <wsdl:port name="WSFileTrafficSoap" binding="tns:WSFileTrafficSoap">
+      <soap:address location="http://172.17.0.160:8182/WSFileTraffic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSFileTrafficSoap12" binding="tns:WSFileTrafficSoap12">
+      <soap12:address location="http://172.17.0.160:8182/WSFileTraffic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSFileTrafficHttpGet" binding="tns:WSFileTrafficHttpGet">
+      <http:address location="http://172.17.0.160:8182/WSFileTraffic.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSFileTrafficHttpPost" binding="tns:WSFileTrafficHttpPost">
+      <http:address location="http://172.17.0.160:8182/WSFileTraffic.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

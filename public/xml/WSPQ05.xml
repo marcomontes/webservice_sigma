@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="_x005B_CU-GN-09_x005D_">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datosCobroXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="_x005B_CU-GN-09_x005D_Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="_x005B_CU-GN-09_x005D_Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibirXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibirXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecibirXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="_x005B_CU-GN-09_x005D_SoapIn">
+    <wsdl:part name="parameters" element="tns:_x005B_CU-GN-09_x005D_" />
+  </wsdl:message>
+  <wsdl:message name="_x005B_CU-GN-09_x005D_SoapOut">
+    <wsdl:part name="parameters" element="tns:_x005B_CU-GN-09_x005D_Response" />
+  </wsdl:message>
+  <wsdl:message name="RecibirXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:RecibirXML" />
+  </wsdl:message>
+  <wsdl:message name="RecibirXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:RecibirXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="_x005B_CU-GN-09_x005D_HttpGetIn">
+    <wsdl:part name="datosCobroXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="_x005B_CU-GN-09_x005D_HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirXMLHttpGetIn">
+    <wsdl:part name="mensaje" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="_x005B_CU-GN-09_x005D_HttpPostIn">
+    <wsdl:part name="datosCobroXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="_x005B_CU-GN-09_x005D_HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirXMLHttpPostIn">
+    <wsdl:part name="mensaje" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSPQ05Soap">
+    <wsdl:operation name="RecibirDatosCobro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del cobro entregados por la Autoridad Ambiental para generar el formulario de cobro]</wsdl:documentation>
+      <wsdl:input name="_x005B_CU-GN-09_x005D_" message="tns:_x005B_CU-GN-09_x005D_SoapIn" />
+      <wsdl:output name="_x005B_CU-GN-09_x005D_" message="tns:_x005B_CU-GN-09_x005D_SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos de BPM]</wsdl:documentation>
+      <wsdl:input message="tns:RecibirXMLSoapIn" />
+      <wsdl:output message="tns:RecibirXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSPQ05HttpGet">
+    <wsdl:operation name="RecibirDatosCobro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del cobro entregados por la Autoridad Ambiental para generar el formulario de cobro]</wsdl:documentation>
+      <wsdl:input name="_x005B_CU-GN-09_x005D_" message="tns:_x005B_CU-GN-09_x005D_HttpGetIn" />
+      <wsdl:output name="_x005B_CU-GN-09_x005D_" message="tns:_x005B_CU-GN-09_x005D_HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos de BPM]</wsdl:documentation>
+      <wsdl:input message="tns:RecibirXMLHttpGetIn" />
+      <wsdl:output message="tns:RecibirXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSPQ05HttpPost">
+    <wsdl:operation name="RecibirDatosCobro">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del cobro entregados por la Autoridad Ambiental para generar el formulario de cobro]</wsdl:documentation>
+      <wsdl:input name="_x005B_CU-GN-09_x005D_" message="tns:_x005B_CU-GN-09_x005D_HttpPostIn" />
+      <wsdl:output name="_x005B_CU-GN-09_x005D_" message="tns:_x005B_CU-GN-09_x005D_HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirXML">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos de BPM]</wsdl:documentation>
+      <wsdl:input message="tns:RecibirXMLHttpPostIn" />
+      <wsdl:output message="tns:RecibirXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSPQ05Soap" type="tns:WSPQ05Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosCobro">
+      <soap:operation soapAction="http://tempuri.org/[CU-GN-09]" style="document" />
+      <wsdl:input name="_x005B_CU-GN-09_x005D_">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x005B_CU-GN-09_x005D_">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirXML">
+      <soap:operation soapAction="http://tempuri.org/RecibirXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ05Soap12" type="tns:WSPQ05Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosCobro">
+      <soap12:operation soapAction="http://tempuri.org/[CU-GN-09]" style="document" />
+      <wsdl:input name="_x005B_CU-GN-09_x005D_">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_x005B_CU-GN-09_x005D_">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirXML">
+      <soap12:operation soapAction="http://tempuri.org/RecibirXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ05HttpGet" type="tns:WSPQ05HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RecibirDatosCobro">
+      <http:operation location="/[CU-GN-09]" />
+      <wsdl:input name="_x005B_CU-GN-09_x005D_">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="_x005B_CU-GN-09_x005D_">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirXML">
+      <http:operation location="/RecibirXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ05HttpPost" type="tns:WSPQ05HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RecibirDatosCobro">
+      <http:operation location="/[CU-GN-09]" />
+      <wsdl:input name="_x005B_CU-GN-09_x005D_">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="_x005B_CU-GN-09_x005D_">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirXML">
+      <http:operation location="/RecibirXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSPQ05">
+    <wsdl:port name="WSPQ05Soap" binding="tns:WSPQ05Soap">
+      <soap:address location="http://172.17.0.160:8182/WSPQ05.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ05Soap12" binding="tns:WSPQ05Soap12">
+      <soap12:address location="http://172.17.0.160:8182/WSPQ05.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ05HttpGet" binding="tns:WSPQ05HttpGet">
+      <http:address location="http://172.17.0.160:8182/WSPQ05.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ05HttpPost" binding="tns:WSPQ05HttpPost">
+      <http:address location="http://172.17.0.160:8182/WSPQ05.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

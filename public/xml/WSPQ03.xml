@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RecibirActoAdministrativoEIA-01">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="documentoXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibirActoAdministrativoEIA-01Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecibirActoAdministrativoEIA-01Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EjecutoriarActo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="documento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EjecutoriarActoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EjecutoriarActoResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="respuesta" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmitirDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="documento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmitirDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmitirDocumentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosAdjuntos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosAdjuntosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosAdjuntosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarDatosRadicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXmlDatos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarDatosRadicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnviarDatosRadicacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RecibirActoAdministrativoEIA-01SoapIn">
+    <wsdl:part name="parameters" element="tns:RecibirActoAdministrativoEIA-01" />
+  </wsdl:message>
+  <wsdl:message name="RecibirActoAdministrativoEIA-01SoapOut">
+    <wsdl:part name="parameters" element="tns:RecibirActoAdministrativoEIA-01Response" />
+  </wsdl:message>
+  <wsdl:message name="EjecutoriarActoSoapIn">
+    <wsdl:part name="parameters" element="tns:EjecutoriarActo" />
+  </wsdl:message>
+  <wsdl:message name="EjecutoriarActoSoapOut">
+    <wsdl:part name="parameters" element="tns:EjecutoriarActoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmitirDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:EmitirDocumento" />
+  </wsdl:message>
+  <wsdl:message name="EmitirDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:EmitirDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAdjuntosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosAdjuntos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAdjuntosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosAdjuntosResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviarDatosRadicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviarDatosRadicacion" />
+  </wsdl:message>
+  <wsdl:message name="EnviarDatosRadicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviarDatosRadicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecibirActoAdministrativoEIA-01HttpGetIn">
+    <wsdl:part name="documentoXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirActoAdministrativoEIA-01HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EmitirDocumentoHttpGetIn">
+    <wsdl:part name="documento" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmitirDocumentoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAdjuntosHttpGetIn">
+    <wsdl:part name="strXmlDatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAdjuntosHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarDatosRadicacionHttpGetIn">
+    <wsdl:part name="strXmlDatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarDatosRadicacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="RecibirActoAdministrativoEIA-01HttpPostIn">
+    <wsdl:part name="documentoXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirActoAdministrativoEIA-01HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EmitirDocumentoHttpPostIn">
+    <wsdl:part name="documento" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmitirDocumentoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAdjuntosHttpPostIn">
+    <wsdl:part name="strXmlDatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAdjuntosHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarDatosRadicacionHttpPostIn">
+    <wsdl:part name="strXmlDatos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarDatosRadicacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSPQ03Soap">
+    <wsdl:operation name="RecibirDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del Documento (Acto Administrativo u Oficio) de la Autoridad Ambiental para ser expuestos o emitidos según corresponda ]</wsdl:documentation>
+      <wsdl:input name="RecibirActoAdministrativoEIA-01" message="tns:RecibirActoAdministrativoEIA-01SoapIn" />
+      <wsdl:output name="RecibirActoAdministrativoEIA-01" message="tns:RecibirActoAdministrativoEIA-01SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EjecutoriarActo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Consume un servicio del sistema de notificación en línea por medio de PDI para entregar los datos para el ejecutoriar el acto administrativo de un proceso de notificación]</wsdl:documentation>
+      <wsdl:input message="tns:EjecutoriarActoSoapIn" />
+      <wsdl:output message="tns:EjecutoriarActoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmitirDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Consume un servicio del sistema de notificación en línea por medio de PDI para entregar los datos para el proceso de notificación de un Acto Administrativo]</wsdl:documentation>
+      <wsdl:input message="tns:EmitirDocumentoSoapIn" />
+      <wsdl:output message="tns:EmitirDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAdjuntos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Expone la información y datos enviados por el solicitante, tercero interviniente o quejoso para que la AA correspondiente los consuma]</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerDatosAdjuntosSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosAdjuntosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarDatosRadicacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[La Autoridad Ambiental Envía la informacion del numero y fecha de radicación para una solicitud o Documento ]</wsdl:documentation>
+      <wsdl:input message="tns:EnviarDatosRadicacionSoapIn" />
+      <wsdl:output message="tns:EnviarDatosRadicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSPQ03HttpGet">
+    <wsdl:operation name="RecibirDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del Documento (Acto Administrativo u Oficio) de la Autoridad Ambiental para ser expuestos o emitidos según corresponda ]</wsdl:documentation>
+      <wsdl:input name="RecibirActoAdministrativoEIA-01" message="tns:RecibirActoAdministrativoEIA-01HttpGetIn" />
+      <wsdl:output name="RecibirActoAdministrativoEIA-01" message="tns:RecibirActoAdministrativoEIA-01HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmitirDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Consume un servicio del sistema de notificación en línea por medio de PDI para entregar los datos para el proceso de notificación de un Acto Administrativo]</wsdl:documentation>
+      <wsdl:input message="tns:EmitirDocumentoHttpGetIn" />
+      <wsdl:output message="tns:EmitirDocumentoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAdjuntos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Expone la información y datos enviados por el solicitante, tercero interviniente o quejoso para que la AA correspondiente los consuma]</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerDatosAdjuntosHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosAdjuntosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarDatosRadicacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[La Autoridad Ambiental Envía la informacion del numero y fecha de radicación para una solicitud o Documento ]</wsdl:documentation>
+      <wsdl:input message="tns:EnviarDatosRadicacionHttpGetIn" />
+      <wsdl:output message="tns:EnviarDatosRadicacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSPQ03HttpPost">
+    <wsdl:operation name="RecibirDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del Documento (Acto Administrativo u Oficio) de la Autoridad Ambiental para ser expuestos o emitidos según corresponda ]</wsdl:documentation>
+      <wsdl:input name="RecibirActoAdministrativoEIA-01" message="tns:RecibirActoAdministrativoEIA-01HttpPostIn" />
+      <wsdl:output name="RecibirActoAdministrativoEIA-01" message="tns:RecibirActoAdministrativoEIA-01HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmitirDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Consume un servicio del sistema de notificación en línea por medio de PDI para entregar los datos para el proceso de notificación de un Acto Administrativo]</wsdl:documentation>
+      <wsdl:input message="tns:EmitirDocumentoHttpPostIn" />
+      <wsdl:output message="tns:EmitirDocumentoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAdjuntos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Expone la información y datos enviados por el solicitante, tercero interviniente o quejoso para que la AA correspondiente los consuma]</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerDatosAdjuntosHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosAdjuntosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarDatosRadicacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[La Autoridad Ambiental Envía la informacion del numero y fecha de radicación para una solicitud o Documento ]</wsdl:documentation>
+      <wsdl:input message="tns:EnviarDatosRadicacionHttpPostIn" />
+      <wsdl:output message="tns:EnviarDatosRadicacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSPQ03Soap" type="tns:WSPQ03Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDocumento">
+      <soap:operation soapAction="http://tempuri.org/RecibirActoAdministrativoEIA-01" style="document" />
+      <wsdl:input name="RecibirActoAdministrativoEIA-01">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RecibirActoAdministrativoEIA-01">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EjecutoriarActo">
+      <soap:operation soapAction="http://tempuri.org/EjecutoriarActo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmitirDocumento">
+      <soap:operation soapAction="http://tempuri.org/EmitirDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAdjuntos">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDatosAdjuntos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarDatosRadicacion">
+      <soap:operation soapAction="http://tempuri.org/EnviarDatosRadicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ03Soap12" type="tns:WSPQ03Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDocumento">
+      <soap12:operation soapAction="http://tempuri.org/RecibirActoAdministrativoEIA-01" style="document" />
+      <wsdl:input name="RecibirActoAdministrativoEIA-01">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RecibirActoAdministrativoEIA-01">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EjecutoriarActo">
+      <soap12:operation soapAction="http://tempuri.org/EjecutoriarActo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmitirDocumento">
+      <soap12:operation soapAction="http://tempuri.org/EmitirDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAdjuntos">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDatosAdjuntos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarDatosRadicacion">
+      <soap12:operation soapAction="http://tempuri.org/EnviarDatosRadicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ03HttpGet" type="tns:WSPQ03HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RecibirDocumento">
+      <http:operation location="/RecibirActoAdministrativoEIA-01" />
+      <wsdl:input name="RecibirActoAdministrativoEIA-01">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="RecibirActoAdministrativoEIA-01">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmitirDocumento">
+      <http:operation location="/EmitirDocumento" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAdjuntos">
+      <http:operation location="/ObtenerDatosAdjuntos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarDatosRadicacion">
+      <http:operation location="/EnviarDatosRadicacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ03HttpPost" type="tns:WSPQ03HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RecibirDocumento">
+      <http:operation location="/RecibirActoAdministrativoEIA-01" />
+      <wsdl:input name="RecibirActoAdministrativoEIA-01">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="RecibirActoAdministrativoEIA-01">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmitirDocumento">
+      <http:operation location="/EmitirDocumento" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAdjuntos">
+      <http:operation location="/ObtenerDatosAdjuntos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarDatosRadicacion">
+      <http:operation location="/EnviarDatosRadicacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSPQ03">
+    <wsdl:port name="WSPQ03Soap" binding="tns:WSPQ03Soap">
+      <soap:address location="http://172.17.0.160:8182/WSPQ03.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ03Soap12" binding="tns:WSPQ03Soap12">
+      <soap12:address location="http://172.17.0.160:8182/WSPQ03.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ03HttpGet" binding="tns:WSPQ03HttpGet">
+      <http:address location="http://172.17.0.160:8182/WSPQ03.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ03HttpPost" binding="tns:WSPQ03HttpPost">
+      <http:address location="http://172.17.0.160:8182/WSPQ03.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

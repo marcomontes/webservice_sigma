@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RecibirDatosSalvoconducto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datosSalvoconductoXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecibirDatosSalvoconductoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RecibirDatosSalvoconductoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RecibirDatosSalvoconductoSoapIn">
+    <wsdl:part name="parameters" element="tns:RecibirDatosSalvoconducto" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDatosSalvoconductoSoapOut">
+    <wsdl:part name="parameters" element="tns:RecibirDatosSalvoconductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDatosSalvoconductoHttpGetIn">
+    <wsdl:part name="datosSalvoconductoXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDatosSalvoconductoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="RecibirDatosSalvoconductoHttpPostIn">
+    <wsdl:part name="datosSalvoconductoXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RecibirDatosSalvoconductoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSSUNSoap">
+    <wsdl:operation name="RecibirDatosSalvoconducto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del salvonconducto]</wsdl:documentation>
+      <wsdl:input message="tns:RecibirDatosSalvoconductoSoapIn" />
+      <wsdl:output message="tns:RecibirDatosSalvoconductoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSSUNHttpGet">
+    <wsdl:operation name="RecibirDatosSalvoconducto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del salvonconducto]</wsdl:documentation>
+      <wsdl:input message="tns:RecibirDatosSalvoconductoHttpGetIn" />
+      <wsdl:output message="tns:RecibirDatosSalvoconductoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSSUNHttpPost">
+    <wsdl:operation name="RecibirDatosSalvoconducto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del salvonconducto]</wsdl:documentation>
+      <wsdl:input message="tns:RecibirDatosSalvoconductoHttpPostIn" />
+      <wsdl:output message="tns:RecibirDatosSalvoconductoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSSUNSoap" type="tns:WSSUNSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosSalvoconducto">
+      <soap:operation soapAction="http://tempuri.org/RecibirDatosSalvoconducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSUNSoap12" type="tns:WSSUNSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosSalvoconducto">
+      <soap12:operation soapAction="http://tempuri.org/RecibirDatosSalvoconducto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSUNHttpGet" type="tns:WSSUNHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RecibirDatosSalvoconducto">
+      <http:operation location="/RecibirDatosSalvoconducto" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSUNHttpPost" type="tns:WSSUNHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RecibirDatosSalvoconducto">
+      <http:operation location="/RecibirDatosSalvoconducto" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSSUN">
+    <wsdl:port name="WSSUNSoap" binding="tns:WSSUNSoap">
+      <soap:address location="http://172.17.0.160:8182/WSSUN.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSUNSoap12" binding="tns:WSSUNSoap12">
+      <soap12:address location="http://172.17.0.160:8182/WSSUN.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSUNHttpGet" binding="tns:WSSUNHttpGet">
+      <http:address location="http://172.17.0.160:8182/WSSUN.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSUNHttpPost" binding="tns:WSSUNHttpPost">
+      <http:address location="http://172.17.0.160:8182/WSSUN.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

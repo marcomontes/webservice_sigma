@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CU-RUI-02">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CU-RUI-02Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CU-RUI-02Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CU-RUI-10">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CU-RUI-10Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CU-RUI-10Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CU-RUI-02SoapIn">
+    <wsdl:part name="parameters" element="tns:CU-RUI-02" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-02SoapOut">
+    <wsdl:part name="parameters" element="tns:CU-RUI-02Response" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-10SoapIn">
+    <wsdl:part name="parameters" element="tns:CU-RUI-10" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-10SoapOut">
+    <wsdl:part name="parameters" element="tns:CU-RUI-10Response" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-02HttpGetIn">
+    <wsdl:part name="xmlObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-02HttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-10HttpGetIn">
+    <wsdl:part name="xmlObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-10HttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="CU-RUI-02HttpPostIn">
+    <wsdl:part name="xmlObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-02HttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-10HttpPostIn">
+    <wsdl:part name="xmlObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-RUI-10HttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSRUIASoap">
+    <wsdl:operation name="RecibirDatosRUIA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del RUIA]</wsdl:documentation>
+      <wsdl:input name="CU-RUI-02" message="tns:CU-RUI-02SoapIn" />
+      <wsdl:output name="CU-RUI-02" message="tns:CU-RUI-02SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDatosRUIAEjecutoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del RUIA para Actualizar Fecha Ejecutoria]</wsdl:documentation>
+      <wsdl:input name="CU-RUI-10" message="tns:CU-RUI-10SoapIn" />
+      <wsdl:output name="CU-RUI-10" message="tns:CU-RUI-10SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSRUIAHttpGet">
+    <wsdl:operation name="RecibirDatosRUIA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del RUIA]</wsdl:documentation>
+      <wsdl:input name="CU-RUI-02" message="tns:CU-RUI-02HttpGetIn" />
+      <wsdl:output name="CU-RUI-02" message="tns:CU-RUI-02HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDatosRUIAEjecutoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del RUIA para Actualizar Fecha Ejecutoria]</wsdl:documentation>
+      <wsdl:input name="CU-RUI-10" message="tns:CU-RUI-10HttpGetIn" />
+      <wsdl:output name="CU-RUI-10" message="tns:CU-RUI-10HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSRUIAHttpPost">
+    <wsdl:operation name="RecibirDatosRUIA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del RUIA]</wsdl:documentation>
+      <wsdl:input name="CU-RUI-02" message="tns:CU-RUI-02HttpPostIn" />
+      <wsdl:output name="CU-RUI-02" message="tns:CU-RUI-02HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDatosRUIAEjecutoria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos del RUIA para Actualizar Fecha Ejecutoria]</wsdl:documentation>
+      <wsdl:input name="CU-RUI-10" message="tns:CU-RUI-10HttpPostIn" />
+      <wsdl:output name="CU-RUI-10" message="tns:CU-RUI-10HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSRUIASoap" type="tns:WSRUIASoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosRUIA">
+      <soap:operation soapAction="http://tempuri.org/CU-RUI-02" style="document" />
+      <wsdl:input name="CU-RUI-02">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-02">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDatosRUIAEjecutoria">
+      <soap:operation soapAction="http://tempuri.org/CU-RUI-10" style="document" />
+      <wsdl:input name="CU-RUI-10">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-10">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSRUIASoap12" type="tns:WSRUIASoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosRUIA">
+      <soap12:operation soapAction="http://tempuri.org/CU-RUI-02" style="document" />
+      <wsdl:input name="CU-RUI-02">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-02">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDatosRUIAEjecutoria">
+      <soap12:operation soapAction="http://tempuri.org/CU-RUI-10" style="document" />
+      <wsdl:input name="CU-RUI-10">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-10">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSRUIAHttpGet" type="tns:WSRUIAHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RecibirDatosRUIA">
+      <http:operation location="/CU-RUI-02" />
+      <wsdl:input name="CU-RUI-02">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-02">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDatosRUIAEjecutoria">
+      <http:operation location="/CU-RUI-10" />
+      <wsdl:input name="CU-RUI-10">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-10">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSRUIAHttpPost" type="tns:WSRUIAHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RecibirDatosRUIA">
+      <http:operation location="/CU-RUI-02" />
+      <wsdl:input name="CU-RUI-02">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-02">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecibirDatosRUIAEjecutoria">
+      <http:operation location="/CU-RUI-10" />
+      <wsdl:input name="CU-RUI-10">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CU-RUI-10">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSRUIA">
+    <wsdl:port name="WSRUIASoap" binding="tns:WSRUIASoap">
+      <soap:address location="http://172.17.0.160:8182/WSRUIA.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSRUIASoap12" binding="tns:WSRUIASoap12">
+      <soap12:address location="http://172.17.0.160:8182/WSRUIA.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSRUIAHttpGet" binding="tns:WSRUIAHttpGet">
+      <http:address location="http://172.17.0.160:8182/WSRUIA.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSRUIAHttpPost" binding="tns:WSRUIAHttpPost">
+      <http:address location="http://172.17.0.160:8182/WSRUIA.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

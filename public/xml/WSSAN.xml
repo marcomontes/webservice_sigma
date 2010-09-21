@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RespuestaQuejaDenuncia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlRespuestaQueja" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RespuestaQuejaDenunciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RespuestaQuejaDenunciaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RespuestaQuejaDenunciaSoapIn">
+    <wsdl:part name="parameters" element="tns:RespuestaQuejaDenuncia" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaQuejaDenunciaSoapOut">
+    <wsdl:part name="parameters" element="tns:RespuestaQuejaDenunciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaQuejaDenunciaHttpGetIn">
+    <wsdl:part name="xmlRespuestaQueja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaQuejaDenunciaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="RespuestaQuejaDenunciaHttpPostIn">
+    <wsdl:part name="xmlRespuestaQueja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RespuestaQuejaDenunciaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSSANSoap">
+    <wsdl:operation name="RespuestaQuejaDenuncia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos de la queja]</wsdl:documentation>
+      <wsdl:input message="tns:RespuestaQuejaDenunciaSoapIn" />
+      <wsdl:output message="tns:RespuestaQuejaDenunciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSSANHttpGet">
+    <wsdl:operation name="RespuestaQuejaDenuncia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos de la queja]</wsdl:documentation>
+      <wsdl:input message="tns:RespuestaQuejaDenunciaHttpGetIn" />
+      <wsdl:output message="tns:RespuestaQuejaDenunciaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSSANHttpPost">
+    <wsdl:operation name="RespuestaQuejaDenuncia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos de la queja]</wsdl:documentation>
+      <wsdl:input message="tns:RespuestaQuejaDenunciaHttpPostIn" />
+      <wsdl:output message="tns:RespuestaQuejaDenunciaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSSANSoap" type="tns:WSSANSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RespuestaQuejaDenuncia">
+      <soap:operation soapAction="http://tempuri.org/RespuestaQuejaDenuncia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSANSoap12" type="tns:WSSANSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RespuestaQuejaDenuncia">
+      <soap12:operation soapAction="http://tempuri.org/RespuestaQuejaDenuncia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSANHttpGet" type="tns:WSSANHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RespuestaQuejaDenuncia">
+      <http:operation location="/RespuestaQuejaDenuncia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSSANHttpPost" type="tns:WSSANHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RespuestaQuejaDenuncia">
+      <http:operation location="/RespuestaQuejaDenuncia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSSAN">
+    <wsdl:port name="WSSANSoap" binding="tns:WSSANSoap">
+      <soap:address location="http://172.17.0.160:8182/WSSAN.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSANSoap12" binding="tns:WSSANSoap12">
+      <soap12:address location="http://172.17.0.160:8182/WSSAN.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSANHttpGet" binding="tns:WSSANHttpGet">
+      <http:address location="http://172.17.0.160:8182/WSSAN.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSSANHttpPost" binding="tns:WSSANHttpPost">
+      <http:address location="http://172.17.0.160:8182/WSSAN.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

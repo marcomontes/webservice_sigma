@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Tramites">
+        <s:complexType />
+      </s:element>
+      <s:element name="TramitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TramitesResult" type="tns:ArrayOfTipoTramite" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoTramite">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoTramite" nillable="true" type="tns:TipoTramite" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoTramite">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntidadSerializable">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TipoProceso" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntidadSerializable" abstract="true" />
+      <s:element name="ListarTramites">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idTramite" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarTramitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarTramitesResult" type="tns:TipoTramite" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Documentos">
+        <s:complexType />
+      </s:element>
+      <s:element name="DocumentosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listasRUIA">
+        <s:complexType />
+      </s:element>
+      <s:element name="listasRUIAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listasRUIAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListasDatosHomologacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idTabla" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListasDatosHomologacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListasDatosHomologacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfTipoTramite" nillable="true" type="tns:ArrayOfTipoTramite" />
+      <s:element name="TipoTramite" nillable="true" type="tns:TipoTramite" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TramitesSoapIn">
+    <wsdl:part name="parameters" element="tns:Tramites" />
+  </wsdl:message>
+  <wsdl:message name="TramitesSoapOut">
+    <wsdl:part name="parameters" element="tns:TramitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarTramitesSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarTramites" />
+  </wsdl:message>
+  <wsdl:message name="ListarTramitesSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarTramitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DocumentosSoapIn">
+    <wsdl:part name="parameters" element="tns:Documentos" />
+  </wsdl:message>
+  <wsdl:message name="DocumentosSoapOut">
+    <wsdl:part name="parameters" element="tns:DocumentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="listasRUIASoapIn">
+    <wsdl:part name="parameters" element="tns:listasRUIA" />
+  </wsdl:message>
+  <wsdl:message name="listasRUIASoapOut">
+    <wsdl:part name="parameters" element="tns:listasRUIAResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListasDatosHomologacionSoapIn">
+    <wsdl:part name="parameters" element="tns:ListasDatosHomologacion" />
+  </wsdl:message>
+  <wsdl:message name="ListasDatosHomologacionSoapOut">
+    <wsdl:part name="parameters" element="tns:ListasDatosHomologacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TramitesHttpGetIn" />
+  <wsdl:message name="TramitesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoTramite" />
+  </wsdl:message>
+  <wsdl:message name="ListarTramitesHttpGetIn">
+    <wsdl:part name="idTramite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarTramitesHttpGetOut">
+    <wsdl:part name="Body" element="tns:TipoTramite" />
+  </wsdl:message>
+  <wsdl:message name="DocumentosHttpGetIn" />
+  <wsdl:message name="DocumentosHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="listasRUIAHttpGetIn" />
+  <wsdl:message name="listasRUIAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="ListasDatosHomologacionHttpGetIn">
+    <wsdl:part name="idTabla" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListasDatosHomologacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TramitesHttpPostIn" />
+  <wsdl:message name="TramitesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoTramite" />
+  </wsdl:message>
+  <wsdl:message name="ListarTramitesHttpPostIn">
+    <wsdl:part name="idTramite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarTramitesHttpPostOut">
+    <wsdl:part name="Body" element="tns:TipoTramite" />
+  </wsdl:message>
+  <wsdl:message name="DocumentosHttpPostIn" />
+  <wsdl:message name="DocumentosHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="listasRUIAHttpPostIn" />
+  <wsdl:message name="listasRUIAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:message name="ListasDatosHomologacionHttpPostIn">
+    <wsdl:part name="idTabla" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListasDatosHomologacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WSPQ07Soap">
+    <wsdl:operation name="Tramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de tramite</wsdl:documentation>
+      <wsdl:input message="tns:TramitesSoapIn" />
+      <wsdl:output message="tns:TramitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de tramite segun el parametro enviado</wsdl:documentation>
+      <wsdl:input message="tns:ListarTramitesSoapIn" />
+      <wsdl:output message="tns:ListarTramitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Documentos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de documento</wsdl:documentation>
+      <wsdl:input message="tns:DocumentosSoapIn" />
+      <wsdl:output message="tns:DocumentosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listasRUIA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna las listas de objetos básicos utilizados en RUIA</wsdl:documentation>
+      <wsdl:input message="tns:listasRUIASoapIn" />
+      <wsdl:output message="tns:listasRUIASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListasDatosHomologacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna las listas de objetos básicos utilizados en homologacion de datos</wsdl:documentation>
+      <wsdl:input message="tns:ListasDatosHomologacionSoapIn" />
+      <wsdl:output message="tns:ListasDatosHomologacionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSPQ07HttpGet">
+    <wsdl:operation name="Tramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de tramite</wsdl:documentation>
+      <wsdl:input message="tns:TramitesHttpGetIn" />
+      <wsdl:output message="tns:TramitesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de tramite segun el parametro enviado</wsdl:documentation>
+      <wsdl:input message="tns:ListarTramitesHttpGetIn" />
+      <wsdl:output message="tns:ListarTramitesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Documentos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de documento</wsdl:documentation>
+      <wsdl:input message="tns:DocumentosHttpGetIn" />
+      <wsdl:output message="tns:DocumentosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listasRUIA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna las listas de objetos básicos utilizados en RUIA</wsdl:documentation>
+      <wsdl:input message="tns:listasRUIAHttpGetIn" />
+      <wsdl:output message="tns:listasRUIAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListasDatosHomologacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna las listas de objetos básicos utilizados en homologacion de datos</wsdl:documentation>
+      <wsdl:input message="tns:ListasDatosHomologacionHttpGetIn" />
+      <wsdl:output message="tns:ListasDatosHomologacionHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSPQ07HttpPost">
+    <wsdl:operation name="Tramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de tramite</wsdl:documentation>
+      <wsdl:input message="tns:TramitesHttpPostIn" />
+      <wsdl:output message="tns:TramitesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarTramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de tramite segun el parametro enviado</wsdl:documentation>
+      <wsdl:input message="tns:ListarTramitesHttpPostIn" />
+      <wsdl:output message="tns:ListarTramitesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Documentos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el listado de tipos de documento</wsdl:documentation>
+      <wsdl:input message="tns:DocumentosHttpPostIn" />
+      <wsdl:output message="tns:DocumentosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listasRUIA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna las listas de objetos básicos utilizados en RUIA</wsdl:documentation>
+      <wsdl:input message="tns:listasRUIAHttpPostIn" />
+      <wsdl:output message="tns:listasRUIAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListasDatosHomologacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna las listas de objetos básicos utilizados en homologacion de datos</wsdl:documentation>
+      <wsdl:input message="tns:ListasDatosHomologacionHttpPostIn" />
+      <wsdl:output message="tns:ListasDatosHomologacionHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSPQ07Soap" type="tns:WSPQ07Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Tramites">
+      <soap:operation soapAction="http://tempuri.org/Tramites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTramites">
+      <soap:operation soapAction="http://tempuri.org/ListarTramites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documentos">
+      <soap:operation soapAction="http://tempuri.org/Documentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listasRUIA">
+      <soap:operation soapAction="http://tempuri.org/listasRUIA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListasDatosHomologacion">
+      <soap:operation soapAction="http://tempuri.org/ListasDatosHomologacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ07Soap12" type="tns:WSPQ07Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Tramites">
+      <soap12:operation soapAction="http://tempuri.org/Tramites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTramites">
+      <soap12:operation soapAction="http://tempuri.org/ListarTramites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documentos">
+      <soap12:operation soapAction="http://tempuri.org/Documentos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listasRUIA">
+      <soap12:operation soapAction="http://tempuri.org/listasRUIA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListasDatosHomologacion">
+      <soap12:operation soapAction="http://tempuri.org/ListasDatosHomologacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ07HttpGet" type="tns:WSPQ07HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Tramites">
+      <http:operation location="/Tramites" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTramites">
+      <http:operation location="/ListarTramites" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documentos">
+      <http:operation location="/Documentos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listasRUIA">
+      <http:operation location="/listasRUIA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ListasDatosHomologacion">
+      <http:operation location="/ListasDatosHomologacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSPQ07HttpPost" type="tns:WSPQ07HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Tramites">
+      <http:operation location="/Tramites" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarTramites">
+      <http:operation location="/ListarTramites" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documentos">
+      <http:operation location="/Documentos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listasRUIA">
+      <http:operation location="/listasRUIA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ListasDatosHomologacion">
+      <http:operation location="/ListasDatosHomologacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSPQ07">
+    <wsdl:port name="WSPQ07Soap" binding="tns:WSPQ07Soap">
+      <soap:address location="http://172.17.0.160:8182/WSPQ07.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ07Soap12" binding="tns:WSPQ07Soap12">
+      <soap12:address location="http://172.17.0.160:8182/WSPQ07.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ07HttpGet" binding="tns:WSPQ07HttpGet">
+      <http:address location="http://172.17.0.160:8182/WSPQ07.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSPQ07HttpPost" binding="tns:WSPQ07HttpPost">
+      <http:address location="http://172.17.0.160:8182/WSPQ07.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

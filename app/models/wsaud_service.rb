@@ -1,0 +1,3 @@
+class WsaudService
+
+end

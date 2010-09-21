@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CU-AUD-02">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datosAudienciaXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CU-AUD-02Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CU-AUD-02Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CU-AUD-03">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idAudiencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CU-AUD-03Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CU-AUD-03Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApruebaInscripcionAudiencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strNumeroInscripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blnAprobado" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMotivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApruebaInscripcionAudienciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApruebaInscripcionAudienciaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CU-AUD-02SoapIn">
+    <wsdl:part name="parameters" element="tns:CU-AUD-02" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-02SoapOut">
+    <wsdl:part name="parameters" element="tns:CU-AUD-02Response" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-03SoapIn">
+    <wsdl:part name="parameters" element="tns:CU-AUD-03" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-03SoapOut">
+    <wsdl:part name="parameters" element="tns:CU-AUD-03Response" />
+  </wsdl:message>
+  <wsdl:message name="ApruebaInscripcionAudienciaSoapIn">
+    <wsdl:part name="parameters" element="tns:ApruebaInscripcionAudiencia" />
+  </wsdl:message>
+  <wsdl:message name="ApruebaInscripcionAudienciaSoapOut">
+    <wsdl:part name="parameters" element="tns:ApruebaInscripcionAudienciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-02HttpGetIn">
+    <wsdl:part name="datosAudienciaXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-02HttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-03HttpGetIn">
+    <wsdl:part name="idAudiencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-03HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ApruebaInscripcionAudienciaHttpGetIn">
+    <wsdl:part name="strNumeroInscripcion" type="s:string" />
+    <wsdl:part name="blnAprobado" type="s:string" />
+    <wsdl:part name="strMotivo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ApruebaInscripcionAudienciaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="CU-AUD-02HttpPostIn">
+    <wsdl:part name="datosAudienciaXML" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-02HttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-03HttpPostIn">
+    <wsdl:part name="idAudiencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CU-AUD-03HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ApruebaInscripcionAudienciaHttpPostIn">
+    <wsdl:part name="strNumeroInscripcion" type="s:string" />
+    <wsdl:part name="blnAprobado" type="s:string" />
+    <wsdl:part name="strMotivo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ApruebaInscripcionAudienciaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSAUDSoap">
+    <wsdl:operation name="RecibirDatosAudienciaPublica">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos entregados por la Autoridad Ambiental de un edicto de audiencia pública]</wsdl:documentation>
+      <wsdl:input name="CU-AUD-02" message="tns:CU-AUD-02SoapIn" />
+      <wsdl:output name="CU-AUD-02" message="tns:CU-AUD-02SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RespuestaInscripcionAudiencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Devuelve un string con el listado de inscritos en las audiencias]</wsdl:documentation>
+      <wsdl:input name="CU-AUD-03" message="tns:CU-AUD-03SoapIn" />
+      <wsdl:output name="CU-AUD-03" message="tns:CU-AUD-03SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApruebaInscripcionAudiencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Aprueba un inscrito]</wsdl:documentation>
+      <wsdl:input message="tns:ApruebaInscripcionAudienciaSoapIn" />
+      <wsdl:output message="tns:ApruebaInscripcionAudienciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSAUDHttpGet">
+    <wsdl:operation name="RecibirDatosAudienciaPublica">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos entregados por la Autoridad Ambiental de un edicto de audiencia pública]</wsdl:documentation>
+      <wsdl:input name="CU-AUD-02" message="tns:CU-AUD-02HttpGetIn" />
+      <wsdl:output name="CU-AUD-02" message="tns:CU-AUD-02HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RespuestaInscripcionAudiencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Devuelve un string con el listado de inscritos en las audiencias]</wsdl:documentation>
+      <wsdl:input name="CU-AUD-03" message="tns:CU-AUD-03HttpGetIn" />
+      <wsdl:output name="CU-AUD-03" message="tns:CU-AUD-03HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApruebaInscripcionAudiencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Aprueba un inscrito]</wsdl:documentation>
+      <wsdl:input message="tns:ApruebaInscripcionAudienciaHttpGetIn" />
+      <wsdl:output message="tns:ApruebaInscripcionAudienciaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSAUDHttpPost">
+    <wsdl:operation name="RecibirDatosAudienciaPublica">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Recibe los datos entregados por la Autoridad Ambiental de un edicto de audiencia pública]</wsdl:documentation>
+      <wsdl:input name="CU-AUD-02" message="tns:CU-AUD-02HttpPostIn" />
+      <wsdl:output name="CU-AUD-02" message="tns:CU-AUD-02HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RespuestaInscripcionAudiencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Devuelve un string con el listado de inscritos en las audiencias]</wsdl:documentation>
+      <wsdl:input name="CU-AUD-03" message="tns:CU-AUD-03HttpPostIn" />
+      <wsdl:output name="CU-AUD-03" message="tns:CU-AUD-03HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApruebaInscripcionAudiencia">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[Aprueba un inscrito]</wsdl:documentation>
+      <wsdl:input message="tns:ApruebaInscripcionAudienciaHttpPostIn" />
+      <wsdl:output message="tns:ApruebaInscripcionAudienciaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSAUDSoap" type="tns:WSAUDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosAudienciaPublica">
+      <soap:operation soapAction="http://tempuri.org/CU-AUD-02" style="document" />
+      <wsdl:input name="CU-AUD-02">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-02">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RespuestaInscripcionAudiencia">
+      <soap:operation soapAction="http://tempuri.org/CU-AUD-03" style="document" />
+      <wsdl:input name="CU-AUD-03">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-03">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApruebaInscripcionAudiencia">
+      <soap:operation soapAction="http://tempuri.org/ApruebaInscripcionAudiencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSAUDSoap12" type="tns:WSAUDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RecibirDatosAudienciaPublica">
+      <soap12:operation soapAction="http://tempuri.org/CU-AUD-02" style="document" />
+      <wsdl:input name="CU-AUD-02">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-02">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RespuestaInscripcionAudiencia">
+      <soap12:operation soapAction="http://tempuri.org/CU-AUD-03" style="document" />
+      <wsdl:input name="CU-AUD-03">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-03">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApruebaInscripcionAudiencia">
+      <soap12:operation soapAction="http://tempuri.org/ApruebaInscripcionAudiencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSAUDHttpGet" type="tns:WSAUDHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RecibirDatosAudienciaPublica">
+      <http:operation location="/CU-AUD-02" />
+      <wsdl:input name="CU-AUD-02">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-02">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RespuestaInscripcionAudiencia">
+      <http:operation location="/CU-AUD-03" />
+      <wsdl:input name="CU-AUD-03">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-03">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApruebaInscripcionAudiencia">
+      <http:operation location="/ApruebaInscripcionAudiencia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSAUDHttpPost" type="tns:WSAUDHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RecibirDatosAudienciaPublica">
+      <http:operation location="/CU-AUD-02" />
+      <wsdl:input name="CU-AUD-02">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-02">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RespuestaInscripcionAudiencia">
+      <http:operation location="/CU-AUD-03" />
+      <wsdl:input name="CU-AUD-03">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CU-AUD-03">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApruebaInscripcionAudiencia">
+      <http:operation location="/ApruebaInscripcionAudiencia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSAUD">
+    <wsdl:port name="WSAUDSoap" binding="tns:WSAUDSoap">
+      <soap:address location="http://172.17.0.160:8182/WSAUD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSAUDSoap12" binding="tns:WSAUDSoap12">
+      <soap12:address location="http://172.17.0.160:8182/WSAUD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSAUDHttpGet" binding="tns:WSAUDHttpGet">
+      <http:address location="http://172.17.0.160:8182/WSAUD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSAUDHttpPost" binding="tns:WSAUDHttpPost">
+      <http:address location="http://172.17.0.160:8182/WSAUD.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

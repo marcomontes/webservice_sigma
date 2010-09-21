@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="listarEstados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str_visible" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarEstadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarEstadosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarMovimientos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str_cod_dependencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="str_nur" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="str_remitente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dte_fecha_desde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dte_fecha_hasta" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="str_ciclo_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="str_estado_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="str_asunto_resumen" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="str_numero_silpa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIdAA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarMovimientosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarMovimientosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarMovimientoxID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="int_mov_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarMovimientoxIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarMovimientoxIDResult" type="tns:Movimiento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Movimiento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Str_numero_vital" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_Remitente" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo_Tramite" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Representante_Legal" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Apoderado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre_Representante_Legal" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Solicitante" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero_Silpa" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MovimientoID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentoID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDocumento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Anno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaMovimiento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaVencimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NUR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remitente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Asunto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Resumen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="Sector" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sector_Hijo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nur_Asociado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dir_Remitente" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="consultarMovimientoxNUR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str_nur" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="consultarMovimientoxNURResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="consultarMovimientoxNURResult" type="tns:Movimiento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarGrupoMovimientos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str_movimientos" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listarGrupoMovimientosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listarGrupoMovimientosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosCrearCarpeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intIdRadicacion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosCrearCarpetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosCrearCarpetaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosAbrirActividad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intIdRadicacion" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosAbrirActividadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosAbrirActividadResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReasignarAutoridadRadicacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="datosEnvio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReasignarAutoridadRadicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReasignarAutoridadRadicacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCorresPondenciaPorExpediente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intIdExpediente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intAutId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCorresPondenciaPorExpedienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerCorresPondenciaPorExpedienteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Movimiento" nillable="true" type="tns:Movimiento" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="listarEstadosSoapIn">
+    <wsdl:part name="parameters" element="tns:listarEstados" />
+  </wsdl:message>
+  <wsdl:message name="listarEstadosSoapOut">
+    <wsdl:part name="parameters" element="tns:listarEstadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientosSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarMovimientos" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientosSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarMovimientosResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxIDSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarMovimientoxID" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxIDSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarMovimientoxIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxNURSoapIn">
+    <wsdl:part name="parameters" element="tns:consultarMovimientoxNUR" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxNURSoapOut">
+    <wsdl:part name="parameters" element="tns:consultarMovimientoxNURResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarGrupoMovimientosSoapIn">
+    <wsdl:part name="parameters" element="tns:listarGrupoMovimientos" />
+  </wsdl:message>
+  <wsdl:message name="listarGrupoMovimientosSoapOut">
+    <wsdl:part name="parameters" element="tns:listarGrupoMovimientosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosCrearCarpetaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosCrearCarpeta" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosCrearCarpetaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosCrearCarpetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAbrirActividadSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosAbrirActividad" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAbrirActividadSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosAbrirActividadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReasignarAutoridadRadicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:ReasignarAutoridadRadicacion" />
+  </wsdl:message>
+  <wsdl:message name="ReasignarAutoridadRadicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:ReasignarAutoridadRadicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCorresPondenciaPorExpedienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCorresPondenciaPorExpediente" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCorresPondenciaPorExpedienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCorresPondenciaPorExpedienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="listarEstadosHttpGetIn">
+    <wsdl:part name="str_visible" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="listarEstadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientosHttpGetIn">
+    <wsdl:part name="str_cod_dependencia" type="s:string" />
+    <wsdl:part name="str_nur" type="s:string" />
+    <wsdl:part name="str_remitente" type="s:string" />
+    <wsdl:part name="dte_fecha_desde" type="s:string" />
+    <wsdl:part name="dte_fecha_hasta" type="s:string" />
+    <wsdl:part name="str_ciclo_id" type="s:string" />
+    <wsdl:part name="str_estado_id" type="s:string" />
+    <wsdl:part name="str_asunto_resumen" type="s:string" />
+    <wsdl:part name="str_numero_silpa" type="s:string" />
+    <wsdl:part name="strIdAA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxIDHttpGetIn">
+    <wsdl:part name="int_mov_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:Movimiento" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxNURHttpGetIn">
+    <wsdl:part name="str_nur" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxNURHttpGetOut">
+    <wsdl:part name="Body" element="tns:Movimiento" />
+  </wsdl:message>
+  <wsdl:message name="listarGrupoMovimientosHttpGetIn">
+    <wsdl:part name="str_movimientos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="listarGrupoMovimientosHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosCrearCarpetaHttpGetIn">
+    <wsdl:part name="intIdRadicacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosCrearCarpetaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAbrirActividadHttpGetIn">
+    <wsdl:part name="intIdRadicacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAbrirActividadHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ReasignarAutoridadRadicacionHttpGetIn">
+    <wsdl:part name="datosEnvio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReasignarAutoridadRadicacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCorresPondenciaPorExpedienteHttpGetIn">
+    <wsdl:part name="intIdExpediente" type="s:string" />
+    <wsdl:part name="intAutId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCorresPondenciaPorExpedienteHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="listarEstadosHttpPostIn">
+    <wsdl:part name="str_visible" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="listarEstadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientosHttpPostIn">
+    <wsdl:part name="str_cod_dependencia" type="s:string" />
+    <wsdl:part name="str_nur" type="s:string" />
+    <wsdl:part name="str_remitente" type="s:string" />
+    <wsdl:part name="dte_fecha_desde" type="s:string" />
+    <wsdl:part name="dte_fecha_hasta" type="s:string" />
+    <wsdl:part name="str_ciclo_id" type="s:string" />
+    <wsdl:part name="str_estado_id" type="s:string" />
+    <wsdl:part name="str_asunto_resumen" type="s:string" />
+    <wsdl:part name="str_numero_silpa" type="s:string" />
+    <wsdl:part name="strIdAA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxIDHttpPostIn">
+    <wsdl:part name="int_mov_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:Movimiento" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxNURHttpPostIn">
+    <wsdl:part name="str_nur" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarMovimientoxNURHttpPostOut">
+    <wsdl:part name="Body" element="tns:Movimiento" />
+  </wsdl:message>
+  <wsdl:message name="listarGrupoMovimientosHttpPostIn">
+    <wsdl:part name="str_movimientos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="listarGrupoMovimientosHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosCrearCarpetaHttpPostIn">
+    <wsdl:part name="intIdRadicacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosCrearCarpetaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAbrirActividadHttpPostIn">
+    <wsdl:part name="intIdRadicacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosAbrirActividadHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ReasignarAutoridadRadicacionHttpPostIn">
+    <wsdl:part name="datosEnvio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReasignarAutoridadRadicacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCorresPondenciaPorExpedienteHttpPostIn">
+    <wsdl:part name="intIdExpediente" type="s:string" />
+    <wsdl:part name="intAutId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCorresPondenciaPorExpedienteHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="ws_correspondenciaSoap">
+    <wsdl:operation name="listarEstados">
+      <wsdl:input message="tns:listarEstadosSoapIn" />
+      <wsdl:output message="tns:listarEstadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientos">
+      <wsdl:input message="tns:consultarMovimientosSoapIn" />
+      <wsdl:output message="tns:consultarMovimientosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxID">
+      <wsdl:input message="tns:consultarMovimientoxIDSoapIn" />
+      <wsdl:output message="tns:consultarMovimientoxIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxNUR">
+      <wsdl:input message="tns:consultarMovimientoxNURSoapIn" />
+      <wsdl:output message="tns:consultarMovimientoxNURSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoMovimientos">
+      <wsdl:input message="tns:listarGrupoMovimientosSoapIn" />
+      <wsdl:output message="tns:listarGrupoMovimientosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosCrearCarpeta">
+      <wsdl:input message="tns:ObtenerDatosCrearCarpetaSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosCrearCarpetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAbrirActividad">
+      <wsdl:input message="tns:ObtenerDatosAbrirActividadSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosAbrirActividadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReasignarAutoridadRadicacion">
+      <wsdl:input message="tns:ReasignarAutoridadRadicacionSoapIn" />
+      <wsdl:output message="tns:ReasignarAutoridadRadicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCorresPondenciaPorExpediente">
+      <wsdl:input message="tns:ObtenerCorresPondenciaPorExpedienteSoapIn" />
+      <wsdl:output message="tns:ObtenerCorresPondenciaPorExpedienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ws_correspondenciaHttpGet">
+    <wsdl:operation name="listarEstados">
+      <wsdl:input message="tns:listarEstadosHttpGetIn" />
+      <wsdl:output message="tns:listarEstadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientos">
+      <wsdl:input message="tns:consultarMovimientosHttpGetIn" />
+      <wsdl:output message="tns:consultarMovimientosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxID">
+      <wsdl:input message="tns:consultarMovimientoxIDHttpGetIn" />
+      <wsdl:output message="tns:consultarMovimientoxIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxNUR">
+      <wsdl:input message="tns:consultarMovimientoxNURHttpGetIn" />
+      <wsdl:output message="tns:consultarMovimientoxNURHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoMovimientos">
+      <wsdl:input message="tns:listarGrupoMovimientosHttpGetIn" />
+      <wsdl:output message="tns:listarGrupoMovimientosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosCrearCarpeta">
+      <wsdl:input message="tns:ObtenerDatosCrearCarpetaHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosCrearCarpetaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAbrirActividad">
+      <wsdl:input message="tns:ObtenerDatosAbrirActividadHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosAbrirActividadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReasignarAutoridadRadicacion">
+      <wsdl:input message="tns:ReasignarAutoridadRadicacionHttpGetIn" />
+      <wsdl:output message="tns:ReasignarAutoridadRadicacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCorresPondenciaPorExpediente">
+      <wsdl:input message="tns:ObtenerCorresPondenciaPorExpedienteHttpGetIn" />
+      <wsdl:output message="tns:ObtenerCorresPondenciaPorExpedienteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ws_correspondenciaHttpPost">
+    <wsdl:operation name="listarEstados">
+      <wsdl:input message="tns:listarEstadosHttpPostIn" />
+      <wsdl:output message="tns:listarEstadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientos">
+      <wsdl:input message="tns:consultarMovimientosHttpPostIn" />
+      <wsdl:output message="tns:consultarMovimientosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxID">
+      <wsdl:input message="tns:consultarMovimientoxIDHttpPostIn" />
+      <wsdl:output message="tns:consultarMovimientoxIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxNUR">
+      <wsdl:input message="tns:consultarMovimientoxNURHttpPostIn" />
+      <wsdl:output message="tns:consultarMovimientoxNURHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoMovimientos">
+      <wsdl:input message="tns:listarGrupoMovimientosHttpPostIn" />
+      <wsdl:output message="tns:listarGrupoMovimientosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosCrearCarpeta">
+      <wsdl:input message="tns:ObtenerDatosCrearCarpetaHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosCrearCarpetaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAbrirActividad">
+      <wsdl:input message="tns:ObtenerDatosAbrirActividadHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosAbrirActividadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReasignarAutoridadRadicacion">
+      <wsdl:input message="tns:ReasignarAutoridadRadicacionHttpPostIn" />
+      <wsdl:output message="tns:ReasignarAutoridadRadicacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCorresPondenciaPorExpediente">
+      <wsdl:input message="tns:ObtenerCorresPondenciaPorExpedienteHttpPostIn" />
+      <wsdl:output message="tns:ObtenerCorresPondenciaPorExpedienteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ws_correspondenciaSoap" type="tns:ws_correspondenciaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="listarEstados">
+      <soap:operation soapAction="http://tempuri.org/listarEstados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientos">
+      <soap:operation soapAction="http://tempuri.org/consultarMovimientos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxID">
+      <soap:operation soapAction="http://tempuri.org/consultarMovimientoxID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxNUR">
+      <soap:operation soapAction="http://tempuri.org/consultarMovimientoxNUR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoMovimientos">
+      <soap:operation soapAction="http://tempuri.org/listarGrupoMovimientos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosCrearCarpeta">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDatosCrearCarpeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAbrirActividad">
+      <soap:operation soapAction="http://tempuri.org/ObtenerDatosAbrirActividad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReasignarAutoridadRadicacion">
+      <soap:operation soapAction="http://tempuri.org/ReasignarAutoridadRadicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCorresPondenciaPorExpediente">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCorresPondenciaPorExpediente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ws_correspondenciaSoap12" type="tns:ws_correspondenciaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="listarEstados">
+      <soap12:operation soapAction="http://tempuri.org/listarEstados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientos">
+      <soap12:operation soapAction="http://tempuri.org/consultarMovimientos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxID">
+      <soap12:operation soapAction="http://tempuri.org/consultarMovimientoxID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxNUR">
+      <soap12:operation soapAction="http://tempuri.org/consultarMovimientoxNUR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoMovimientos">
+      <soap12:operation soapAction="http://tempuri.org/listarGrupoMovimientos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosCrearCarpeta">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDatosCrearCarpeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAbrirActividad">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerDatosAbrirActividad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReasignarAutoridadRadicacion">
+      <soap12:operation soapAction="http://tempuri.org/ReasignarAutoridadRadicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCorresPondenciaPorExpediente">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCorresPondenciaPorExpediente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ws_correspondenciaHttpGet" type="tns:ws_correspondenciaHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="listarEstados">
+      <http:operation location="/listarEstados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientos">
+      <http:operation location="/consultarMovimientos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxID">
+      <http:operation location="/consultarMovimientoxID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxNUR">
+      <http:operation location="/consultarMovimientoxNUR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoMovimientos">
+      <http:operation location="/listarGrupoMovimientos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosCrearCarpeta">
+      <http:operation location="/ObtenerDatosCrearCarpeta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAbrirActividad">
+      <http:operation location="/ObtenerDatosAbrirActividad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReasignarAutoridadRadicacion">
+      <http:operation location="/ReasignarAutoridadRadicacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCorresPondenciaPorExpediente">
+      <http:operation location="/ObtenerCorresPondenciaPorExpediente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ws_correspondenciaHttpPost" type="tns:ws_correspondenciaHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="listarEstados">
+      <http:operation location="/listarEstados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientos">
+      <http:operation location="/consultarMovimientos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxID">
+      <http:operation location="/consultarMovimientoxID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMovimientoxNUR">
+      <http:operation location="/consultarMovimientoxNUR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarGrupoMovimientos">
+      <http:operation location="/listarGrupoMovimientos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosCrearCarpeta">
+      <http:operation location="/ObtenerDatosCrearCarpeta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosAbrirActividad">
+      <http:operation location="/ObtenerDatosAbrirActividad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReasignarAutoridadRadicacion">
+      <http:operation location="/ReasignarAutoridadRadicacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCorresPondenciaPorExpediente">
+      <http:operation location="/ObtenerCorresPondenciaPorExpediente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws_correspondencia">
+    <wsdl:port name="ws_correspondenciaSoap" binding="tns:ws_correspondenciaSoap">
+      <soap:address location="http://172.17.0.160:8182/WSCorrespondenciaSilpa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ws_correspondenciaSoap12" binding="tns:ws_correspondenciaSoap12">
+      <soap12:address location="http://172.17.0.160:8182/WSCorrespondenciaSilpa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ws_correspondenciaHttpGet" binding="tns:ws_correspondenciaHttpGet">
+      <http:address location="http://172.17.0.160:8182/WSCorrespondenciaSilpa.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ws_correspondenciaHttpPost" binding="tns:ws_correspondenciaHttpPost">
+      <http:address location="http://172.17.0.160:8182/WSCorrespondenciaSilpa.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

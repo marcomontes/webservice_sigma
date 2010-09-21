@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Metodo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idMetodo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MetodoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MetodoResult" type="tns:ArrayOfMetodo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMetodo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Metodo" nillable="true" type="tns:Metodo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Metodo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntidadSerializable">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ser" type="tns:Servicio" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Activo" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntidadSerializable" abstract="true" />
+      <s:complexType name="Servicio">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntidadSerializable">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Activo" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="MetodoServicioFull">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idMetodo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MetodoServicioFullResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MetodoServicioFullResult" type="tns:ArrayOfMetodo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MetodoServicio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MetodoServicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MetodoServicioResult" type="tns:ArrayOfMetodo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Servicios">
+        <s:complexType />
+      </s:element>
+      <s:element name="ServiciosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServiciosResult" type="tns:ArrayOfServicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfServicio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Servicio" nillable="true" type="tns:Servicio" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Metodos">
+        <s:complexType />
+      </s:element>
+      <s:element name="MetodosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MetodosResult" type="tns:ArrayOfMetodo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ArrayOfMetodo" nillable="true" type="tns:ArrayOfMetodo" />
+      <s:element name="ArrayOfServicio" nillable="true" type="tns:ArrayOfServicio" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MetodoSoapIn">
+    <wsdl:part name="parameters" element="tns:Metodo" />
+  </wsdl:message>
+  <wsdl:message name="MetodoSoapOut">
+    <wsdl:part name="parameters" element="tns:MetodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioFullSoapIn">
+    <wsdl:part name="parameters" element="tns:MetodoServicioFull" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioFullSoapOut">
+    <wsdl:part name="parameters" element="tns:MetodoServicioFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioSoapIn">
+    <wsdl:part name="parameters" element="tns:MetodoServicio" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioSoapOut">
+    <wsdl:part name="parameters" element="tns:MetodoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServiciosSoapIn">
+    <wsdl:part name="parameters" element="tns:Servicios" />
+  </wsdl:message>
+  <wsdl:message name="ServiciosSoapOut">
+    <wsdl:part name="parameters" element="tns:ServiciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="MetodosSoapIn">
+    <wsdl:part name="parameters" element="tns:Metodos" />
+  </wsdl:message>
+  <wsdl:message name="MetodosSoapOut">
+    <wsdl:part name="parameters" element="tns:MetodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="MetodoHttpGetIn">
+    <wsdl:part name="idMetodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MetodoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioFullHttpGetIn">
+    <wsdl:part name="idMetodo" type="s:string" />
+    <wsdl:part name="idServicio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioFullHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioHttpGetIn">
+    <wsdl:part name="idServicio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="ServiciosHttpGetIn" />
+  <wsdl:message name="ServiciosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfServicio" />
+  </wsdl:message>
+  <wsdl:message name="MetodosHttpGetIn" />
+  <wsdl:message name="MetodosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut" />
+  <wsdl:message name="MetodoHttpPostIn">
+    <wsdl:part name="idMetodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MetodoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioFullHttpPostIn">
+    <wsdl:part name="idMetodo" type="s:string" />
+    <wsdl:part name="idServicio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioFullHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioHttpPostIn">
+    <wsdl:part name="idServicio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MetodoServicioHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="ServiciosHttpPostIn" />
+  <wsdl:message name="ServiciosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfServicio" />
+  </wsdl:message>
+  <wsdl:message name="MetodosHttpPostIn" />
+  <wsdl:message name="MetodosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMetodo" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut" />
+  <wsdl:portType name="WSListaServiciosSoap">
+    <wsdl:operation name="Metodo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del metodo]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoSoapIn" />
+      <wsdl:output message="tns:MetodoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicioFull">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del metodo y del servicio]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoServicioFullSoapIn" />
+      <wsdl:output message="tns:MetodoServicioFullSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del servicio]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoServicioSoapIn" />
+      <wsdl:output message="tns:MetodoServicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Servicios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Servicios]</wsdl:documentation>
+      <wsdl:input message="tns:ServiciosSoapIn" />
+      <wsdl:output message="tns:ServiciosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Metodos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos]</wsdl:documentation>
+      <wsdl:input message="tns:MetodosSoapIn" />
+      <wsdl:output message="tns:MetodosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSListaServiciosHttpGet">
+    <wsdl:operation name="Metodo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del metodo]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoHttpGetIn" />
+      <wsdl:output message="tns:MetodoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicioFull">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del metodo y del servicio]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoServicioFullHttpGetIn" />
+      <wsdl:output message="tns:MetodoServicioFullHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del servicio]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoServicioHttpGetIn" />
+      <wsdl:output message="tns:MetodoServicioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Servicios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Servicios]</wsdl:documentation>
+      <wsdl:input message="tns:ServiciosHttpGetIn" />
+      <wsdl:output message="tns:ServiciosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Metodos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos]</wsdl:documentation>
+      <wsdl:input message="tns:MetodosHttpGetIn" />
+      <wsdl:output message="tns:MetodosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSListaServiciosHttpPost">
+    <wsdl:operation name="Metodo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del metodo]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoHttpPostIn" />
+      <wsdl:output message="tns:MetodoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicioFull">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del metodo y del servicio]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoServicioFullHttpPostIn" />
+      <wsdl:output message="tns:MetodoServicioFullHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos por coincidencia del identificador del servicio]</wsdl:documentation>
+      <wsdl:input message="tns:MetodoServicioHttpPostIn" />
+      <wsdl:output message="tns:MetodoServicioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Servicios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Servicios]</wsdl:documentation>
+      <wsdl:input message="tns:ServiciosHttpPostIn" />
+      <wsdl:output message="tns:ServiciosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Metodos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">[retorna el listado de Metodos]</wsdl:documentation>
+      <wsdl:input message="tns:MetodosHttpPostIn" />
+      <wsdl:output message="tns:MetodosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodo de test del servicio</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSListaServiciosSoap" type="tns:WSListaServiciosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Metodo">
+      <soap:operation soapAction="http://tempuri.org/Metodo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicioFull">
+      <soap:operation soapAction="http://tempuri.org/MetodoServicioFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicio">
+      <soap:operation soapAction="http://tempuri.org/MetodoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servicios">
+      <soap:operation soapAction="http://tempuri.org/Servicios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metodos">
+      <soap:operation soapAction="http://tempuri.org/Metodos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSListaServiciosSoap12" type="tns:WSListaServiciosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Metodo">
+      <soap12:operation soapAction="http://tempuri.org/Metodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicioFull">
+      <soap12:operation soapAction="http://tempuri.org/MetodoServicioFull" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicio">
+      <soap12:operation soapAction="http://tempuri.org/MetodoServicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servicios">
+      <soap12:operation soapAction="http://tempuri.org/Servicios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metodos">
+      <soap12:operation soapAction="http://tempuri.org/Metodos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://tempuri.org/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSListaServiciosHttpGet" type="tns:WSListaServiciosHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Metodo">
+      <http:operation location="/Metodo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicioFull">
+      <http:operation location="/MetodoServicioFull" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicio">
+      <http:operation location="/MetodoServicio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servicios">
+      <http:operation location="/Servicios" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metodos">
+      <http:operation location="/Metodos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSListaServiciosHttpPost" type="tns:WSListaServiciosHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Metodo">
+      <http:operation location="/Metodo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicioFull">
+      <http:operation location="/MetodoServicioFull" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MetodoServicio">
+      <http:operation location="/MetodoServicio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Servicios">
+      <http:operation location="/Servicios" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Metodos">
+      <http:operation location="/Metodos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSListaServicios">
+    <wsdl:port name="WSListaServiciosSoap" binding="tns:WSListaServiciosSoap">
+      <soap:address location="http://172.17.0.160:8182/WSListaServicios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSListaServiciosSoap12" binding="tns:WSListaServiciosSoap12">
+      <soap12:address location="http://172.17.0.160:8182/WSListaServicios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSListaServiciosHttpGet" binding="tns:WSListaServiciosHttpGet">
+      <http:address location="http://172.17.0.160:8182/WSListaServicios.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSListaServiciosHttpPost" binding="tns:WSListaServiciosHttpPost">
+      <http:address location="http://172.17.0.160:8182/WSListaServicios.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
