@@ -41,4 +41,5 @@ Rails::Initializer.run do |config|
 
   config.gem "httparty"
   config.gem "postgres"
+  config.gem "soap4r"
 end
