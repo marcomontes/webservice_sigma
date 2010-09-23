@@ -1,0 +1,93 @@
+wsaud:
+  recibir_datos_audiencia_publica:
+    - numero_silpa
+    - fecha_expedicion
+    - id_solicitante
+    - ids_entidades
+    - nombre_proyecto
+    - numero_expediente
+    - id_persona_interesada
+    - fecha_audiencia_publica
+    - lugar_audiencia_publica
+    - lugares_inscripcion
+    - lugares_consulta
+    - fecha_reunion
+    - lugar_reunion
+    - convocatoria_ponentes
+    - edicto_adjunto
+    - id_autoridad_ambiental
+  respuesta_inscripcion_audiencia:
+    - id_audiencia_publica
+  aprueba_inscripcion_audiencia:
+    - numero_inscripcion
+    - respuesta
+    - justificacion
+  datos_inscripcion_audiencia:
+    -
+  inscripcion_audiencia_aa:
+    -
+
+wsces02:
+  cambiar_cesionario:
+    -
+
+
+wsinf:
+  recibir_informacion_ee:
+    -
+
+wsnot:
+  actualizar_estado_notificacion:
+    -
+  verificar_estado_notificacion:
+    -
+
+wspq01:
+  recibir_publicacion:
+    -
+  recibir_fijacion:
+    -
+  aclarar_pubicacion:
+    -
+  aclarar_fijacion:
+    -
+  eliminar_publicacion_fijacion:
+    -
+
+wspq02:
+  enviar_comunicacion:
+    -
+  enviar_comunicacion_visita:
+    -
+  monitorear_respuesta_ee:
+    -
+
+wspq03:
+  recibir_documento:
+    -
+  emitir_documento:
+    -
+  obtener_datos_adjuntos:
+    -
+  enviar_datos_radicacion:
+    -
+
+wspq04:
+  recibir_datos_cobro:
+    -
+  enviar_datos_pago:
+    -
+  monitorear_pago:
+    -
+
+wspq05:
+  recibir_datos_cobro:
+    -
+
+wssan:
+  respuesta_queja_denuncia:
+    -
+
+wssun:
+  recibir_datos_salvoconducto:
+    -
