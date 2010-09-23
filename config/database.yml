@@ -1,5 +1,14 @@
 development:
   adapter: postgresql
+  username: webservice
+  password: webservicec
+  database: corpocaldas
+  encoding: utf8
+  pool: 5
+  host: 200.58.206.186
+
+dev_local:
+  adapter: postgresql
   username: marco
   password: montes
   database: webservice

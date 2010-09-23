@@ -1,0 +1,143 @@
+t_intermedia:
+  int_codigo:
+    type: string
+    length: 15
+  int_tipo:
+    type: string
+    length: 100
+  int_estado:
+    type: string
+    length: 100
+  int_fecreg:
+    type: date
+  int_tipsol:
+    type: string
+    length: 30
+  int_nomraz:
+    type: string
+    length: 255
+  int_priape:
+    type: string
+    length: 100
+  int_segape:
+    type: string
+    length: 100
+  int_tipide:
+    type: string
+    length: 15
+  int_idesol:
+    type: string
+    length: 20
+  int_lugexp:
+    type: string
+    length: 100
+  int_direco:
+    type: string
+    length: 100
+  int_codeso:
+    type: string
+    length: 20
+  int_comuso:
+    type: string
+    length: 20
+  int_telefo:
+    type: string
+    length: 50
+  int_fax:
+    type: string
+    length: 20
+  int_email:
+    type: string
+    length: 100
+  int_nomrep:
+    type: string
+    length: 150
+  int_tidere:
+    type: string
+    length: 15
+  int_iderep:
+    type: string
+    length: 20
+  int_dircor:
+    type: string
+    length: 100
+  int_codere:
+    type: string
+    length: 20
+  int_comure:
+    type: string
+    length: 20
+  int_telere:
+    type: string
+    length: 50
+  int_faxre:
+    type: string
+    length: 20
+  int_emailr:
+    type: string
+    length: 100
+  int_nomapo:
+    type: string
+    length: 150
+  int_tideap:
+    type: string
+    length: 15
+  int_ideapo:
+    type: string
+    length: 20
+  int_dircoa:
+    type: string
+    length: 100
+  int_codeap:
+    type: string
+    length: 20
+  int_comuap:
+    type: string
+    length: 20
+  int_teleap:
+    type: string
+    length: 50
+  int_faxapo:
+    type: string
+    length: 20
+  int_emaila:
+    type: string
+    length: 100
+  int_tarpro:
+    type: string
+    length: 30
+  int_nompro:
+    type: string
+    length: 100
+  int_valpro:
+    type: string
+    length: 20
+  int_deppro:
+    type: string
+    length: 20
+  int_munpro:
+    type: string
+    length: 20
+  int_verpro:
+    type: string
+    length: 20
+  int_sector:
+    type: string
+    length: 50
+  int_ficcat:
+    type: string
+    length: 30
+  int_activi:
+    type: string
+    length: 10
+  int_calact:
+    type: string
+    length: 50
+  int_numrad:
+    type: string
+    length: 20
+  int_fecrad:
+    type: date
+  per_codigo:
+    type: string
+    length: 30
