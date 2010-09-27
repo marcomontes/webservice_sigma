@@ -1,68 +1,43 @@
 class Wspq01Controller < ApplicationController
 
   def recibir_publicacion
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'recibir_publicacion')
-
-    response.recibir_publicacion{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   def recibir_fijacion
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'recibir_fijacion')
-
-    response.recibir_fijacion{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   def aclarar_pubicacion
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'aclarar_pubicacion')
-
-    response.aclarar_pubicacion{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   def aclarar_fijacion
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'aclarar_fijacion')
-
-    response.aclarar_fijacion{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   def eliminar_publicacion_fijacion
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'eliminar_publicacion_fijacion')
-
-    response.eliminar_publicacion_fijacion{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   protected
@@ -73,6 +48,22 @@ class Wspq01Controller < ApplicationController
 
     def get_service
       "wspq01"
+    end
+
+    def get_method_name
+      caller[0]=~/`(.*?)'/
+      $1
+    end
+
+    def send_file(method, response)
+      output = VitalAdapter.output_type
+      if output == 'download'
+        file_name = "#{get_service}-#{method}.xml"
+        VitalAdapter.generate_file(file_name, response)
+        send_file "#{RAILS_ROOT}/tmp/#{file_name}" , :filename => "#{file_name}"
+      elsif output == 'xml'
+        respond_to do |format| format.xml  { render :xml => response } end
+      end
     end
 
 end

@@ -1,9 +1,4 @@
-development:
-  wsdl_root: http://localhost:3000/xml/
-
-test:
-  wsdl_root: http://localhost:3000/xml/
-
-production:
-  wsdl_root: http://localhost:3000/xml/
-
+wsdl_root: http://localhost:3000/xml/
+output:
+  download: true
+  xml: false

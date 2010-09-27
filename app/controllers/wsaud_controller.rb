@@ -2,71 +2,44 @@ class WsaudController < ApplicationController
 
   # Recibe la información de una Autoridad Ambiental para la celebración de una Audiencia Pública
   def recibir_datos_audiencia_publica
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'recibir_datos_audiencia_publica')
-
-    response.recibir_datos_audiencia_publica{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   # Recibe la información de una Autoridad Ambiental con la respuesta a la inscripción de Audiencia Pública
   def respuesta_inscripcion_audiencia
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'respuesta_inscripcion_audiencia')
-
-    response.respuesta_inscripcion_audiencia{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   def aprueba_inscripcion_audiencia
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'aprueba_inscripcion_audiencia')
-
-    response.aprueba_inscripcion_audiencia{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
-  # SILPA expone los datos de inscripción para intervenir en una audiencia pública
   def datos_inscripcion_audiencia
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'datos_inscripcion_audiencia')
-
-    response.datos_inscripcion_audiencia{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
-  # Recibe la información de inscripción para intervenir en una audiencia pública
   def inscripcion_audiencia_aa
+    method = get_method_name
     response = create_response
-    soap_body = VitalAdapter.soap_body("#{get_service}", 'inscripcion_audiencia_aa')
-
-    response.recibir_datos_audiencia_publica{
-      |soap| soap.body = "{ #{soap_body} }"
-    }
-
-    respond_to do |format|
-      format.xml  { render :xml => response }
-    end
+    soap_body = VitalAdapter.soap_body(get_service, method)
+    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
+    send_file(method, response)
   end
 
   protected
@@ -77,6 +50,22 @@ class WsaudController < ApplicationController
 
     def get_service
       "wsaud"
+    end
+
+    def get_method_name
+      caller[0]=~/`(.*?)'/
+      $1
+    end
+
+    def send_file(method, response)
+      output = VitalAdapter.output_type
+      if output == 'download'
+        file_name = "#{get_service}-#{method}.xml"
+        VitalAdapter.generate_file(file_name, response)
+        send_file "#{RAILS_ROOT}/tmp/#{file_name}" , :filename => "#{file_name}"
+      elsif output == 'xml'
+        respond_to do |format| format.xml  { render :xml => response } end
+      end
     end
 
 end

@@ -1,4 +1,4 @@
-development:
+dev_remoto:
   adapter: postgresql
   username: webservice
   password: webservicec
@@ -7,7 +7,7 @@ development:
   pool: 5
   host: 200.58.206.186
 
-dev_local:
+development:
   adapter: postgresql
   username: marco
   password: montes
