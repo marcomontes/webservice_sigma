@@ -23,54 +23,179 @@ wsaud:
     - respuesta
     - justificacion
   datos_inscripcion_audiencia:
-    -
+    - autoridad_ambiental
   inscripcion_audiencia_aa:
-    -
+    - numero_silpa
+    - numero_expediente
+    - primer_nombre
+    - segundo_nombre
+    - primer_apellido
+    - segundo_apellido
+    - tipo_documento
+    - numero_documento
+    - correo_electronico
+    - entidad
+    - documentos_soporte
 
 wsces02:
   cambiar_cesionario:
-    -
-
+    - numero_silpa
+    - numero_identificacion_cesionario
 
 wsinf:
   recibir_informacion_ee:
-    -
+    - numero_silpa
+    - numero_expediente
+    - entidad_externa
+    - documento_adjuntos
 
 wsnot:
   actualizar_estado_notificacion:
-    -
+    - numero_proceso_notificacion
   verificar_estado_notificacion:
-    -
+    - numero_silpa
+    - autoridad_ambiental
+    - numero_expediente
+    - numero_acto_administrativo
 
 wspq01:
   recibir_publicacion:
-    -
+    - numero_silpa
+    - tipo_publicacion
+    - tipo_documento
+    - objeto_documento
+    - expedicion_documento
+    - descripcion_publicacion
+    - fecha_publicacion
+    - documento_adjunto
   recibir_fijacion:
-    -
+    - numero_silpa
+    - tipo_fijacion
+    - tipo_documento
+    - objeto_documento
+    - expedicion_documento
+    - descripcion_fijacion
+    - fecha_fijacion
+    - fecha_desfijacion
+    - documento_adjunto
   aclarar_pubicacion:
-    -
+    - numero_silpa
+    - tipo_documento
+    - objeto_documento
+    - expedicion_documento
+    - descripcion_publicacion
+    - fecha_publicacion
+    - documento_adjunto
+    - motivo_reemplazo
   aclarar_fijacion:
-    -
+    - numero_silpa
+    - tipo_documento
+    - objeto_documento
+    - expedicion_documento
+    - descripcion_fijacion
+    - fecha_fijacion
+    - fecha_desfijacion
+    - documento_adjunto
+    - motivo_reemplazo
   eliminar_publicacion_fijacion:
-    -
+    - numero_silpa
+    - numero_documento
 
 wspq02:
   enviar_comunicacion:
-    -
+    - numero_silpa
+    - numero_expediente
+    - nombre_entidad_externa
+    - correo_entidad_externa
+    - lista_solicitantes
+    - nombre_solicitante
+    - email_solicitante
+    - tiempo_espera_respuesta
   enviar_comunicacion_visita:
-    -
+    - numero_silpa
+    - fecha_expediente
+    - fecha_inicial
+    - fecha_final
+    - descripcion_visita
+    - nombre_responsable_visita
+    - cedula_responsable_visita
+    - cargo_responsable_visita
   monitorear_respuesta_ee:
-    -
+    - numero_expediente
 
 wspq03:
   recibir_documento:
+    # Información del Documento
+    - numero_silpa
+    - numero_expediente
+    - numero_documento
+    - tipo_documento
+    - descripcion_documento
+    - fecha_documento
+    - acto_administrativo_asociado
+    - archivos_adjuntos
+    # Información Relacionada al Documento
+    #   Datos para realizar Pago (Si Aplica)
+    - identificacion_autoridad_ambiental
+    - numero_formulario_cobro
+    - fecha
+    - concepto_cobro
+    - descripcion
+    - valor_cobro
+    - indicador_proceso
+    - datos_codigo_barras
+    - documento_adjunto
+    # Datos para Notificación (Si aplica)
+    - codigo_unico_id_entidad_publica
+    - dependencia_entidad
+    - id_dependencia
+    - nombre_dependencia
+    - id_nacional_persona
+    - tipo_id_nacional_persona
+    - grupo_numero_id_nacional
+    - lista_personas_notificar
     -
+      - persona_notificar
+      -
+        - tipo
+        - codigo
+        - nombre
+        - id_nacional
   emitir_documento:
+    # Información del Documento
+    - numero_silpa
+    - numero_expediente
+    - numero_documento
+    - tipo_documento
+    - objeto_documento
+    - fecha_documento
+    - texto_documento
+    - archivos_adjuntos
+    # Información Relacionada al Documento
+    #   Datos para Notificación
+    - codigo_unico_id_entidad_publica
+    - dependencia_entidad
+    - id_dependencia
+    - nombre_dependencia
+    - id_nacional_persona
+    - tipo_id_nacional_persona
+    - grupo_numero_id_nacional
+    - lista_personas_notificar
     -
+      - persona_notificar
+      -
+        - tipo
+        - codigo
+        - nombre
+        - id_nacional
   obtener_datos_adjuntos:
-    -
+    - autoridad_ambiental
+    - booleano
   enviar_datos_radicacion:
-    -
+    - numero_silpa
+    - autoridad_ambiental
+    - numero_radicado
+    - fecha_radicado
 
 wspq04:
   recibir_datos_cobro:
@@ -82,12 +207,50 @@ wspq04:
 
 wspq05:
   recibir_datos_cobro:
-    -
-
+    - numero_silpa
+    - numero_expediente
+    - id_autoridad_ambiental
+    - numero_formulario_cobro
+    - fecha_expedicion
+    - fecha_vencimiento
+    - concepto_cobro
+    - descripcion
+    - valor_cobro
+    - id_proceso
+    - id_solicitante
+    - codigo_barras
+    - documento_adjunto
+    
 wssan:
   respuesta_queja_denuncia:
-    -
+    - numero_silpa_queja
+    - numero_radicado_aa
+    - texto_respuesta
 
 wssun:
   recibir_datos_salvoconducto:
-    -
+    - numero_silpa
+    - numero_expediente
+    - tipo_salvoconducto
+    - id_tipo_salvoconducto
+    - numero_salvoconducto
+    - numero_salvoconducto_anterior
+    - fecha_inicial_salvoconducto
+    - tipo_recurso
+    - id_tipo_recurso_flora
+    - municipio
+    - id_municipio
+    - corregimiento
+    - id_corregimiento
+    - id_vereda
+    - vereda
+    - departamento
+    - id_departamento
+    - fecha_vencimiento
+    - id_especimenes
+    - nombre_cientifico_especimen
+    - nombre_comun_especimen
+    - descripcion_especimen
+    - id_especimen
+    - unidad_medida_especimen
+    - dimension_especimen
