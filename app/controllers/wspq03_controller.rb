@@ -1,35 +1,31 @@
 class Wspq03Controller < ApplicationController
 
   def recibir_documento
+    sql = ""
     method = get_method_name
-    response = create_response
-    soap_body = VitalAdapter.soap_body(get_service, method)
-    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
-    send_file(method, response)
+    sql_result = Corpocaldas.query(sql)
+    send_file(method, sql_result)
   end
 
   def emitir_documento
+    sql = ""
     method = get_method_name
-    response = create_response
-    soap_body = VitalAdapter.soap_body(get_service, method)
-    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
-    send_file(method, response)
+    sql_result = Corpocaldas.query(sql)
+    send_file(method, sql_result)
   end
 
   def obtener_datos_adjuntos
+    sql = ""
     method = get_method_name
-    response = create_response
-    soap_body = VitalAdapter.soap_body(get_service, method)
-    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
-    send_file(method, response)
+    sql_result = Corpocaldas.query(sql)
+    send_file(method, sql_result)
   end
 
   def enviar_datos_radicacion
+    sql = ""
     method = get_method_name
-    response = create_response
-    soap_body = VitalAdapter.soap_body(get_service, method)
-    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
-    send_file(method, response)
+    sql_result = Corpocaldas.query(sql)
+    send_file(method, sql_result)
   end
 
   protected

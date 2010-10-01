@@ -1,19 +1,17 @@
 class WsnotController < ApplicationController
 
   def actualizar_estado_notificacion
+    sql = ""
     method = get_method_name
-    response = create_response
-    soap_body = VitalAdapter.soap_body(get_service, method)
-    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
-    send_file(method, response)
+    sql_result = Corpocaldas.query(sql)
+    send_file(method, sql_result)
   end
 
   def verificar_estado_notificacion
+    sql = ""
     method = get_method_name
-    response = create_response
-    soap_body = VitalAdapter.soap_body(get_service, method)
-    response.recibir_datos_audiencia_publica{ |soap| soap.body = "{ #{soap_body} }" }
-    send_file(method, response)
+    sql_result = Corpocaldas.query(sql)
+    send_file(method, sql_result)
   end
 
   protected

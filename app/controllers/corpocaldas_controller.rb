@@ -4,25 +4,14 @@ class CorpocaldasController < ApplicationController
     fields = params[:campos]
     tables = params[:tablas]
     conditions = params[:condiciones]
-
-    sql = "SELECT #{fields} FROM #{tables} WHERE #{conditions}"
-    sql_result = Corpocaldas.find_by_sql(sql)
-
-    output = VitalAdapter.output_type
-
-    if output == 'download'
-      file_name = "corpocaldas_query.xml"
-      VitalAdapter.generate_file(file_name, sql_result)
-      send_file "#{RAILS_ROOT}/tmp/#{file_name}" , :filename => "#{file_name}"
-    elsif output == 'xml'
-      respond_to do |format| format.xml  { render :xml => sql_result } end
-    end
-
+    sql_result = Corpocaldas.custom_query(fields, tables, conditions)
+    method = get_method_name
+    send_file(method, sql_result)
   end
 
   def listar_tramites
     id_tramite = params[:id_tramite]
-
+    
     sql = "select
           per_codigo as Id_Tramite,
           per_tipo as Tipo_Proceso,
@@ -32,22 +21,14 @@ class CorpocaldasController < ApplicationController
           where t_permiso.per_codigo = '#{id_tramite}'
           and t_permiso.usu_identi = t_usuari.usu_identi"
 
-    sql_result = Corpocaldas.find_by_sql(sql)
-
-    output = VitalAdapter.output_type
-
-    if output == 'download'
-      file_name = "listar_tramites.xml"
-      VitalAdapter.generate_file(file_name, sql_result)
-      send_file "#{RAILS_ROOT}/tmp/#{file_name}" , :filename => "#{file_name}"
-    elsif output == 'xml'
-      respond_to do |format| format.xml  { render :xml => sql_result } end
-    end
+    method = get_method_name
+    sql_result = Corpocaldas.query(sql) 
+    send_file(method, sql_result)
   end
 
   def verificar_estado_notificacion
-    numero_expediente = params[:n_expediente]
-    numero_acto_administrativo = params[:n_acto_admin]
+    numero_expediente = params[:numero_expediente]
+    numero_acto_administrativo = params[:numero_acto_administrativo]
 
     sql = "select t_permiso.per_codigo as Id_Tramite, 
           res_numero as Num_Acto_Advo,
@@ -57,28 +38,20 @@ class CorpocaldasController < ApplicationController
           usu_tipo as Tipo_Persona,
           (usu_nombre||' '||validar_null(usu_priape)||' '||validar_null(usu_segape)) as Solicitante
           from t_permiso, t_usuari, t_resolu
-          where t_permiso.per_codigo = '#{numero_expediente}' --ejemplo
-          and res_numero = '#{numero_acto_administrativo}' -- ejemplo
+          where t_permiso.per_codigo = '#{numero_expediente}'
+          and res_numero = '#{numero_acto_administrativo}'
           and t_permiso.usu_identi = t_usuari.usu_identi
           and t_permiso.per_codigo = t_resolu.per_codigo"
 
-    sql_result = Corpocaldas.find_by_sql(sql)
-
-    output = VitalAdapter.output_type
-
-    if output == 'download'
-      file_name = "estado_notificacion.xml"
-      VitalAdapter.generate_file(file_name, sql_result)
-      send_file "#{RAILS_ROOT}/tmp/#{file_name}" , :filename => "#{file_name}"
-    elsif output == 'xml'
-      respond_to do |format| format.xml  { render :xml => sql_result } end
-    end
+    sql_result = Corpocaldas.query(sql)
+    method = get_method_name
+    send_file(method, sql_result)
   end
 
   def obtener_datos_solicitud
-    id_autoridada_ambiental = params[:id_autoridad_ambiental]
-    id_persona = [:id_persona]
-    id_estado_solicitud = [:id_estado_solicitud]
+    id_autoridad_ambiental = params[:id_autoridad_ambiental]
+    id_persona = params[:id_persona]
+    id_estado_solicitud = params[:id_estado_solicitud]
 
     sql = "select usu_identi as Id_Persona, 
           (usu_nombre||' '||validar_null(usu_priape)||' '||validar_null(usu_segape)) as Solicitante,
@@ -98,18 +71,27 @@ class CorpocaldasController < ApplicationController
           where t_usuari.usu_identi = '#{id_persona}'
           and t_usuari.usu_depart = t_depart.dep_codigo"
 
-    sql_result = Corpocaldas.find_by_sql(sql)
+    sql_result = Corpocaldas.query(sql)
+    method = get_method_name
+    send_file(method, sql_result)
+  end
 
-    output = VitalAdapter.output_type
+  protected
 
-    if output == 'download'
-      file_name = "datos_solicitud.xml"
-      VitalAdapter.generate_file(file_name, sql_result)
-      send_file "#{RAILS_ROOT}/tmp/#{file_name}" , :filename => "#{file_name}"
-    elsif output == 'xml'
-      respond_to do |format| format.xml  { render :xml => sql_result } end
+    def get_method_name
+      caller[0]=~/`(.*?)'/
+      $1
     end
 
-  end
+    def send_file(method, response)
+      output = VitalAdapter.output_type
+      if output == 'download'
+        file_name = "#{get_service}-#{method}.xml"
+        VitalAdapter.generate_file(file_name, response)
+        send_file "#{RAILS_ROOT}/tmp/#{file_name}" , :filename => "#{file_name}"
+      elsif output == 'xml'
+        respond_to do |format| format.xml  { render :xml => response } end
+      end
+    end
 
 end
