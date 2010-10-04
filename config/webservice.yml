@@ -1,4 +1,4 @@
-wsdl_root: http://localhost:3000/xml/
+webservice_root: http://200.58.206.186:8686/
 output:
   download: true
   xml: false

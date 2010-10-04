@@ -7,11 +7,6 @@ class VitalAdapter
 
   class << self
 
-    def get_actions(service)
-      client = new_client(service)
-      client.wsdl.soap_actions
-    end
-
     def get_fields(service, method)
       fields = VITAL_FIELDS["#{service}"]["#{method}"]
       parameters = {}
