@@ -1,5 +1,9 @@
 class CorpocaldasController < ApplicationController
 
+  def parametros
+    render :text => params[:codigo]
+  end
+
   def consulta
     fields = params[:campos]
     tables = params[:tablas]
@@ -73,6 +77,12 @@ class CorpocaldasController < ApplicationController
     sql_result = Corpocaldas.query(sql)
     method = get_method_name
     send_file(method, sql_result)
+  end
+
+  def insertar_solicitud
+    solicitud = Intermedia.create_record(params)
+    method = get_method_name
+    send_file(method, {"insert" => solicitud})
   end
 
   protected

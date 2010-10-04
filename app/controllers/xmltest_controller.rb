@@ -1,3 +1,0 @@
-class XmltestController < ApplicationController
- 
-end

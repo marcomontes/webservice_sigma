@@ -10,5 +10,5 @@ class Corpocaldas < ActiveRecord::BaseWithoutTable
     sql_result = Corpocaldas.find_by_sql(sql_query)
     sql_result
   end
- 
+
 end
