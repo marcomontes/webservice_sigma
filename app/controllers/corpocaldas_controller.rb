@@ -1,9 +1,5 @@
 class CorpocaldasController < ApplicationController
 
-  def parametros
-    render :text => params[:codigo]
-  end
-
   def consulta
     fields = params[:campos]
     tables = params[:tablas]
