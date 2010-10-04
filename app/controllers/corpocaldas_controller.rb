@@ -10,7 +10,8 @@ class CorpocaldasController < ApplicationController
   end
 
   def listar_tramites
-    id_tramite = params[:id_tramite]
+    method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
     
     sql = "select
           per_codigo as Id_Tramite,
@@ -18,17 +19,16 @@ class CorpocaldasController < ApplicationController
           t_permiso.usu_identi as Id_Solicitante,
           (usu_nombre||' '||validar_null(usu_priape)||' '||validar_null(usu_segape)) as Solicitante
           from t_permiso, t_usuari
-          where t_permiso.per_codigo = '#{id_tramite}'
+          where t_permiso.per_codigo = '#{vital['id_tramite']}'
           and t_permiso.usu_identi = t_usuari.usu_identi"
 
-    method = get_method_name
     sql_result = Corpocaldas.query(sql) 
     send_file(method, sql_result)
   end
 
   def verificar_estado_notificacion
-    numero_expediente = params[:numero_expediente]
-    numero_acto_administrativo = params[:numero_acto_administrativo]
+    method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
 
     sql = "select t_permiso.per_codigo as Id_Tramite, 
           res_numero as Num_Acto_Advo,
@@ -49,9 +49,8 @@ class CorpocaldasController < ApplicationController
   end
 
   def obtener_datos_solicitud
-    id_autoridad_ambiental = params[:id_autoridad_ambiental]
-    id_persona = params[:id_persona]
-    id_estado_solicitud = params[:id_estado_solicitud]
+    method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
 
     sql = "select usu_identi as Id_Persona, 
           (usu_nombre||' '||validar_null(usu_priape)||' '||validar_null(usu_segape)) as Solicitante,

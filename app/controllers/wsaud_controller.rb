@@ -2,63 +2,47 @@ class WsaudController < ApplicationController
 
   # Recibe la información de una Autoridad Ambiental para la celebración de una Audiencia Pública
   def recibir_datos_audiencia_publica
-    numero_silpa = params[:numero_silpa]
-    fecha_expedicion = params[:fecha_expedicion]
-    id_solicitante = params[:id_solicitante]
-    ids_entidades = params[:ids_entidades]
-    nombre_proyecto = params[:nombre_proyecto]
-    numero_expediente = params[:numero_expediente]
-    id_persona_interesada = params[:id_persona_interesada]
-    fecha_audiencia_publica = params[:fecha_audiencia_publica]
-    lugar_audiencia_publica = params[:lugar_audiencia_publica]
-    lugares_inscripcion = params[:lugares_inscripcion]
-    lugares_consulta = params[:lugares_consulta]
-    fecha_reunion = params[:fecha_reunion]
-    lugar_reunion = params[:lugar_reunion]
-    convocatoria_ponentes = params[:convocatoria_ponentes]
-    edicto_adjunto = params[:edicto_adjunto]
-    id_autoridad_ambiental = params[:id_autoridad_ambiental]
-
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   # Recibe la información de una Autoridad Ambiental con la respuesta a la inscripción de Audiencia Pública
   def respuesta_inscripcion_audiencia
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def aprueba_inscripcion_audiencia
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def datos_inscripcion_audiencia
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def inscripcion_audiencia_aa
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   protected
-
-#    def create_response
-#      VitalAdapter.new_client('WSAUD')
-#    end
 
     def get_service
       "wsaud"

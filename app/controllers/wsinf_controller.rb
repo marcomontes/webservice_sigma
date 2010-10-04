@@ -1,17 +1,14 @@
 class WsinfController < ApplicationController
 
   def recibir_informacion_ee
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   protected
-
-#    def create_response
-#      VitalAdapter.new_client('WSINF')
-#    end
 
     def get_service
       "wsinf"

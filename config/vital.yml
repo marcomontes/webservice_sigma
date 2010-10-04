@@ -1,3 +1,14 @@
+corpocaldas:
+  listar_tramites:
+    - id_tramite
+  verificar_estado_notificacion:
+    - numero_expediente
+    - numero_acto_administrativo
+  obtener_datos_solicitud:
+    - id_autoridad_ambiental
+    - id_persona
+    - id_estado_solicitud
+
 wsaud:
   recibir_datos_audiencia_publica:
     - numero_silpa

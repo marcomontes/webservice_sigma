@@ -1,31 +1,30 @@
 class Wspq02Controller < ApplicationController
 
   def enviar_comunicacion
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def enviar_comunicacion_visita
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def monitorear_respuesta_ee
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   protected
-
-#    def create_response
-#      VitalAdapter.new_client('WSPQ02')
-#    end
 
     def get_service
       "wspq02"

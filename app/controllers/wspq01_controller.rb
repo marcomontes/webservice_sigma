@@ -1,45 +1,46 @@
 class Wspq01Controller < ApplicationController
 
   def recibir_publicacion
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def recibir_fijacion
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def aclarar_pubicacion
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def aclarar_fijacion
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def eliminar_publicacion_fijacion
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   protected
-
-#    def create_response
-#      VitalAdapter.new_client('WSPQ01')
-#    end
 
     def get_service
       "wspq01"

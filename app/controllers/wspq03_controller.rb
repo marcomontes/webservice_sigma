@@ -1,38 +1,38 @@
 class Wspq03Controller < ApplicationController
 
   def recibir_documento
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def emitir_documento
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def obtener_datos_adjuntos
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   def enviar_datos_radicacion
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   protected
-
-#    def create_response
-#      VitalAdapter.new_client('WSPQ03')
-#    end
 
     def get_service
       "wspq03"

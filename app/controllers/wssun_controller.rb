@@ -1,17 +1,14 @@
 class WssunController < ApplicationController
 
   def recibir_datos_salvoconducto
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   protected
-
-#    def create_response
-#      VitalAdapter.new_client('WSSUN')
-#    end
 
     def get_service
       "wssun"

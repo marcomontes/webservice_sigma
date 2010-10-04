@@ -1,17 +1,14 @@
 class WssanController < ApplicationController
 
   def respuesta_queja_denuncia
-    sql = ""
     method = get_method_name
+    vital = VitalAdapter.get_fields(get_service, method)
+    sql = ""
     sql_result = Corpocaldas.query(sql)
     send_file(method, sql_result)
   end
 
   protected
-
-#    def create_response
-#      VitalAdapter.new_client('WSSAN')
-#    end
 
     def get_service
       "wssan"
