@@ -9,9 +9,9 @@ class WssunController < ApplicationController
 
   protected
 
-    def create_response
-      VitalAdapter.new_client('WSSUN')
-    end
+#    def create_response
+#      VitalAdapter.new_client('WSSUN')
+#    end
 
     def get_service
       "wssun"

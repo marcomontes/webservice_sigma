@@ -56,9 +56,9 @@ class WsaudController < ApplicationController
 
   protected
 
-    def create_response
-      VitalAdapter.new_client('WSAUD')
-    end
+#    def create_response
+#      VitalAdapter.new_client('WSAUD')
+#    end
 
     def get_service
       "wsaud"

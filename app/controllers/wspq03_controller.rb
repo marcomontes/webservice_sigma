@@ -30,9 +30,9 @@ class Wspq03Controller < ApplicationController
 
   protected
 
-    def create_response
-      VitalAdapter.new_client('WSPQ03')
-    end
+#    def create_response
+#      VitalAdapter.new_client('WSPQ03')
+#    end
 
     def get_service
       "wspq03"

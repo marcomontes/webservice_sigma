@@ -5,24 +5,24 @@ class VitalAdapter
 
   WSDL = WS_CONFIG['wsdl_root']
 
-  def self.new_client(service)
-    Savon::Client.new "#{WSDL}#{service}.xml"
-  end
+#  def self.new_client(service)
+#    Savon::Client.new "#{WSDL}#{service}.xml"
+#  end
 
   def self.get_actions(service)
     client = new_client(service)
     client.wsdl.soap_actions
   end
 
-  def self.soap_body(service, method)
-    fields = VITAL_FIELDS["#{service}"]["#{method}"]
-    soap_body = String.new
-    fields.each do |f|
-      soap_body << ":#{f} => params[:#{f}]"
-      soap_body << ", " if f != fields.last
-    end
-    soap_body
-  end
+#  def self.soap_body(service, method)
+#    fields = VITAL_FIELDS["#{service}"]["#{method}"]
+#    soap_body = String.new
+#    fields.each do |f|
+#      soap_body << ":#{f} => params[:#{f}]"
+#      soap_body << ", " if f != fields.last
+#    end
+#    soap_body
+#  end
 
   def self.generate_file(file_name, response)
     temp_file = File.new("#{RAILS_ROOT}/tmp/#{file_name}", "w")

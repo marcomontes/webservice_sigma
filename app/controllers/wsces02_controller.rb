@@ -9,9 +9,9 @@ class Wsces02Controller < ApplicationController
 
   protected
 
-    def create_response
-      VitalAdapter.new_client('WSCES02')
-    end
+#    def create_response
+#      VitalAdapter.new_client('WSCES02')
+#    end
 
     def get_service
       "wsces02"

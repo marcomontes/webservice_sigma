@@ -78,6 +78,10 @@ class CorpocaldasController < ApplicationController
 
   protected
 
+    def get_service
+      "corpocaldas"
+    end
+
     def get_method_name
       caller[0]=~/`(.*?)'/
       $1
